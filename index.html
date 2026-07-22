@@ -1,17 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday! 💕</title>
-  <!-- Font Awesome & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <style>
-    /* ==========================================================================
-       GLOBAL BASE
-       ========================================================================== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -32,7 +27,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background-image: url('Screenshot 2026-07-22 191154.png');
+      background-image: url('https://plus.unsplash.com/premium_photo-1770152995410-bb55ed548b3c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8');
       background-size: cover;
       background-position: center;
       opacity: 0.12;
@@ -62,9 +57,6 @@
       display: none !important;
     }
 
-    /* ==========================================================================
-       LOCK SCREEN
-       ========================================================================== */
     .lock-screen-wrapper {
       display: flex;
       align-items: center;
@@ -99,9 +91,6 @@
       border-color: #d63384;
     }
 
-    /* ==========================================================================
-       FALLING FLOWERS
-       ========================================================================== */
     .falling-flowers-container,
     .popup-flower-effect-container {
       position: fixed;
@@ -113,7 +102,9 @@
       z-index: 1;
       overflow: hidden;
     }
-    .popup-flower-effect-container { z-index: 999; }
+    .popup-flower-effect-container {
+      z-index: 999;
+    }
 
     .bg-flower {
       position: absolute;
@@ -123,26 +114,36 @@
       animation: bgFlowerFall 8s linear infinite;
     }
     @keyframes bgFlowerFall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(105vh) rotate(360deg); }
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(105vh) rotate(360deg);
+      }
     }
 
     .big-falling-flower {
       position: absolute;
       top: -80px;
       font-size: 5.2rem;
-      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.08));
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.08));
       animation: bigFlowerFall 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
     @keyframes bigFlowerFall {
-      0% { transform: translateY(0) scale(0.4) rotate(0deg); opacity: 1; }
-      50% { transform: translateY(50vh) scale(1.6) rotate(180deg); opacity: 0.9; }
-      100% { transform: translateY(110vh) scale(1) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(50vh) scale(1.6) rotate(180deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(110vh) scale(1) rotate(360deg);
+        opacity: 0;
+      }
     }
 
-    /* ==========================================================================
-       GLASSMORPHISM CARDS
-       ========================================================================== */
     .screen {
       min-height: 100vh;
       display: flex;
@@ -182,7 +183,8 @@
       box-shadow: 0 24px 52px rgba(184, 59, 94, 0.14);
     }
 
-    .lock-card, .welcome-card {
+    .lock-card,
+    .welcome-card {
       max-width: 480px;
       width: 100%;
     }
@@ -206,7 +208,7 @@
       cursor: pointer;
       transition: all 0.25s ease;
       z-index: 10;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
       backdrop-filter: blur(4px);
     }
     .back-btn:hover {
@@ -217,10 +219,10 @@
       transform: translateY(-2px);
     }
 
-    /* ==========================================================================
-       PASSKEY
-       ========================================================================== */
-    .lock-flower-icon { font-size: 3.8rem; margin-bottom: 8px; }
+    .lock-flower-icon {
+      font-size: 3.8rem;
+      margin-bottom: 8px;
+    }
     .passkey-inputs {
       display: flex;
       justify-content: center;
@@ -246,14 +248,28 @@
       box-shadow: 0 0 0 4px rgba(184, 59, 94, 0.15);
     }
     @keyframes shake {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(-16px); }
-      40% { transform: translateX(16px); }
-      60% { transform: translateX(-10px); }
-      80% { transform: translateX(10px); }
-      100% { transform: translateX(0); }
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-16px);
+      }
+      40% {
+        transform: translateX(16px);
+      }
+      60% {
+        transform: translateX(-10px);
+      }
+      80% {
+        transform: translateX(10px);
+      }
+      100% {
+        transform: translateX(0);
+      }
     }
-    .shake { animation: shake 0.45s ease-in-out; }
+    .shake {
+      animation: shake 0.45s ease-in-out;
+    }
     .unlock-btn {
       background: linear-gradient(145deg, #f2789a, #d63384);
       color: white;
@@ -271,9 +287,6 @@
       box-shadow: 0 18px 36px rgba(214, 51, 132, 0.35);
     }
 
-    /* ==========================================================================
-       ENVELOPE
-       ========================================================================== */
     .envelope-container {
       margin: 32px 0 20px;
       display: flex;
@@ -286,7 +299,7 @@
       background: linear-gradient(145deg, #fce1e1, #f5c8c8);
       border-radius: 8px 8px 0 0;
       position: relative;
-      box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -332,15 +345,15 @@
       align-items: center;
       font-size: 2rem;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25), inset 0 -4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 -4px 8px rgba(0, 0, 0, 0.2);
       z-index: 10;
       transition: transform 0.25s ease, box-shadow 0.3s ease, opacity 0.4s ease;
       color: #fff;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
     .wax-seal-btn:hover {
       transform: scale(1.06) rotate(-3deg);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
     .envelope-box.open {
       transform: rotateY(1deg) scale(1.05) translateY(-8px);
@@ -376,7 +389,7 @@
       font-family: 'Great Vibes', cursive;
       font-size: 1.8rem;
       color: #b83b5e;
-      box-shadow: inset 0 0 12px rgba(0,0,0,0.02);
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.02);
     }
     .envelope-box.open .envelope-content {
       opacity: 1;
@@ -388,11 +401,10 @@
       margin-top: 8px;
       transition: opacity 0.3s ease;
     }
-    .envelope-box.open ~ .envelope-hint { opacity: 0.3; }
+    .envelope-box.open~.envelope-hint {
+      opacity: 0.3;
+    }
 
-    /* ==========================================================================
-       LAYOUT WRAPPER & POLAROID STACKS
-       ========================================================================== */
     .menu-layout-wrapper {
       display: flex;
       align-items: center;
@@ -415,7 +427,7 @@
       background: #ffffff;
       padding: 10px 10px 14px 10px;
       border-radius: 12px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
       text-align: center;
       transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
@@ -440,27 +452,44 @@
       transform: translateX(-50%);
       font-size: 1.1rem;
     }
-    .pos-1 { top: 0; transform: rotate(-5deg); z-index: 1; }
-    .pos-2 { top: 96px; transform: rotate(4deg); z-index: 2; }
-    .pos-3 { top: 192px; transform: rotate(-4deg); z-index: 3; }
-    .pos-4 { top: 288px; transform: rotate(5deg); z-index: 4; }
-    .pos-5 { top: 378px; transform: rotate(-3deg); z-index: 5; }
+    .pos-1 {
+      top: 0;
+      transform: rotate(-5deg);
+      z-index: 1;
+    }
+    .pos-2 {
+      top: 96px;
+      transform: rotate(4deg);
+      z-index: 2;
+    }
+    .pos-3 {
+      top: 192px;
+      transform: rotate(-4deg);
+      z-index: 3;
+    }
+    .pos-4 {
+      top: 288px;
+      transform: rotate(5deg);
+      z-index: 4;
+    }
+    .pos-5 {
+      top: 378px;
+      transform: rotate(-3deg);
+      z-index: 5;
+    }
     .polaroid-card-stacked:hover {
       transform: scale(1.12) rotate(0deg) !important;
       z-index: 20 !important;
       box-shadow: 0 16px 32px rgba(184, 59, 94, 0.10);
     }
 
-    /* ==========================================================================
-       SIDE LETTER CARDS
-       ========================================================================== */
     .side-letter-card {
       width: 220px;
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(6px);
       padding: 22px 18px;
       border-radius: 24px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
       text-align: center;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -469,18 +498,28 @@
       transform: translateY(-4px);
       box-shadow: 0 18px 36px rgba(184, 59, 94, 0.06);
     }
-    .side-letter-title { font-size: 1rem; color: #b83b5e; margin-bottom: 12px; font-weight: 700; }
+    .side-letter-title {
+      font-size: 1rem;
+      color: #b83b5e;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
     .letter-photo-wrap {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 12px;
     }
-    .letter-photo-wrap img { width: 100%; height: 140px; object-fit: cover; }
+    .letter-photo-wrap img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
     .letter-photo-tag {
       position: absolute;
-      bottom: 8px; left: 8px;
-      background: rgba(0,0,0,0.5);
+      bottom: 8px;
+      left: 8px;
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
       color: #fff;
       font-size: 0.65rem;
@@ -495,11 +534,12 @@
       line-height: 1.6;
       margin-bottom: 10px;
     }
-    .side-letter-footer { font-size: 0.7rem; font-weight: 700; color: #b83b5e; }
+    .side-letter-footer {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #b83b5e;
+    }
 
-    /* ==========================================================================
-       MENU GRID
-       ========================================================================== */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -521,8 +561,16 @@
       box-shadow: 0 16px 32px rgba(184, 59, 94, 0.08);
       border-color: #f5c8d4;
     }
-    .icon-wrap { font-size: 2.4rem; color: #b83b5e; margin-bottom: 6px; }
-    .menu-card h3 { font-size: 1.05rem; font-weight: 700; color: #2d1b22; }
+    .icon-wrap {
+      font-size: 2.4rem;
+      color: #b83b5e;
+      margin-bottom: 6px;
+    }
+    .menu-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #2d1b22;
+    }
     .card-badge {
       display: inline-block;
       margin-top: 8px;
@@ -535,9 +583,6 @@
       letter-spacing: 0.02em;
     }
 
-    /* ==========================================================================
-       CAKE PAGE
-       ========================================================================== */
     .cake-display {
       display: flex;
       flex-direction: column;
@@ -659,14 +704,19 @@
     }
 
     @keyframes wishPop {
-      0% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(1.4); }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.4);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
-    /* ==========================================================================
-       BIG BIRTHDAY POPUP MODAL (for blow candles)
-       ========================================================================== */
     .birthday-popup-overlay {
       position: fixed;
       top: 0;
@@ -724,7 +774,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
     .birthday-popup-card .popup-close:hover {
@@ -777,8 +827,12 @@
     }
 
     @keyframes celebrationBounce {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.08);
+      }
     }
 
     .birthday-popup-card .popup-btn {
@@ -801,10 +855,10 @@
       box-shadow: 0 14px 32px rgba(214, 51, 132, 0.35);
     }
 
-    /* ==========================================================================
-       LETTER SCREEN
-       ========================================================================== */
-    .letter-main-card { padding-top: 72px; text-align: left; }
+    .letter-main-card {
+      padding-top: 72px;
+      text-align: left;
+    }
     .long-letter-body {
       margin-top: 20px;
       max-height: 400px;
@@ -821,7 +875,12 @@
       color: #2d1b22;
       margin-bottom: 14px;
     }
-    .letter-closing { margin-top: 24px; text-align: right; color: #b83b5e; font-size: 1.05rem; }
+    .letter-closing {
+      margin-top: 24px;
+      text-align: right;
+      color: #b83b5e;
+      font-size: 1.05rem;
+    }
     .typing-cursor {
       display: inline-block;
       width: 2px;
@@ -831,11 +890,16 @@
       vertical-align: text-bottom;
       animation: blink 0.8s step-end infinite;
     }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
 
-    /* ==========================================================================
-       GARDEN ROW & BOUQUET
-       ========================================================================== */
     .flower-row {
       display: flex;
       justify-content: center;
@@ -857,8 +921,16 @@
       box-shadow: 0 12px 24px rgba(184, 59, 94, 0.10);
       border-color: #b83b5e;
     }
-    .flower-emoji { font-size: 2.6rem; display: block; }
-    .flower-item p { font-size: 0.75rem; font-weight: 700; margin-top: 4px; color: #2d1b22; }
+    .flower-emoji {
+      font-size: 2.6rem;
+      display: block;
+    }
+    .flower-item p {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 4px;
+      color: #2d1b22;
+    }
 
     .wrapper-selection-box {
       background: rgba(255, 255, 255, 0.5);
@@ -889,7 +961,10 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .wrapper-btn:hover { background: #fce8f0; color: #b83b5e; }
+    .wrapper-btn:hover {
+      background: #fce8f0;
+      color: #b83b5e;
+    }
     .wrapper-btn.active {
       background: #b83b5e;
       color: #fff;
@@ -910,7 +985,11 @@
       align-items: center;
       margin-bottom: 14px;
     }
-    .bouquet-header h3 { font-size: 0.9rem; font-weight: 700; color: #2d1b22; }
+    .bouquet-header h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #2d1b22;
+    }
     .reset-bouquet-btn {
       background: none;
       border: none;
@@ -922,7 +1001,9 @@
       transition: background 0.2s ease;
       font-weight: 600;
     }
-    .reset-bouquet-btn:hover { background: rgba(184, 59, 94, 0.06); }
+    .reset-bouquet-btn:hover {
+      background: rgba(184, 59, 94, 0.06);
+    }
     .assembled-flowers {
       display: flex;
       flex-wrap: wrap;
@@ -940,11 +1021,23 @@
       animation: bouquetItemPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes bouquetItemPop {
-      0% { transform: scale(0.4); opacity: 0; }
-      70% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(0.4);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
     }
-    .placeholder-text { font-size: 0.8rem; color: #aaa; font-style: italic; }
+    .placeholder-text {
+      font-size: 0.8rem;
+      color: #aaa;
+      font-style: italic;
+    }
     .create-bouquet-btn {
       background: linear-gradient(145deg, #f2789a, #d63384);
       color: #ffffff;
@@ -958,15 +1051,17 @@
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       margin-top: 16px;
     }
-    .create-bouquet-btn:hover { transform: scale(1.04); box-shadow: 0 14px 32px rgba(214, 51, 132, 0.30); }
+    .create-bouquet-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 14px 32px rgba(214, 51, 132, 0.30);
+    }
 
-    /* ==========================================================================
-       MODALS
-       ========================================================================== */
     .modal-overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(8px);
       display: flex;
@@ -975,7 +1070,14 @@
       z-index: 1000;
       animation: modalOverlayFade 0.3s ease;
     }
-    @keyframes modalOverlayFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modalOverlayFade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
     .modal-card {
       background: #fff;
       border-radius: 32px;
@@ -985,31 +1087,50 @@
       width: 90%;
       position: relative;
       animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.10);
     }
     @keyframes modalPop {
-      0% { transform: scale(0.7); opacity: 0; }
-      60% { transform: scale(1.03); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.03);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
     .modal-close-btn {
       position: absolute;
-      top: 14px; right: 18px;
-      background: none; border: none;
-      font-size: 1.8rem; cursor: pointer;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
       color: #888;
       transition: color 0.2s ease;
     }
-    .modal-close-btn:hover { color: #b83b5e; }
+    .modal-close-btn:hover {
+      color: #b83b5e;
+    }
 
     .angry-dog-img {
-      width: 140px; height: 140px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 12px;
       border: 4px solid #f5c8d4;
     }
-    .dog-modal-title { font-size: 1.2rem; color: #b83b5e; font-weight: 800; }
+    .dog-modal-title {
+      font-size: 1.2rem;
+      color: #b83b5e;
+      font-weight: 800;
+    }
     .retry-btn {
       margin-top: 18px;
       background: #b83b5e;
@@ -1022,9 +1143,15 @@
       font-size: 0.9rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .retry-btn:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(184, 59, 94, 0.20); }
+    .retry-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 20px rgba(184, 59, 94, 0.20);
+    }
 
-    .flower-desc-card .pop-flower-emoji { font-size: 5rem; margin-bottom: 4px; }
+    .flower-desc-card .pop-flower-emoji {
+      font-size: 5rem;
+      margin-bottom: 4px;
+    }
     .voice-badge {
       display: inline-block;
       font-size: 0.7rem;
@@ -1047,11 +1174,22 @@
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       box-shadow: 0 6px 18px rgba(214, 51, 132, 0.20);
     }
-    .add-to-bouquet-btn:hover { transform: scale(1.05); }
+    .add-to-bouquet-btn:hover {
+      transform: scale(1.05);
+    }
 
-    .final-bouquet-card { max-width: 420px; padding: 30px; }
-    .sparkle-header { font-size: 1.4rem; }
-    .congratulation-title { font-size: 2.8rem; color: #b83b5e; margin-top: 4px; }
+    .final-bouquet-card {
+      max-width: 420px;
+      padding: 30px;
+    }
+    .sparkle-header {
+      font-size: 1.4rem;
+    }
+    .congratulation-title {
+      font-size: 2.8rem;
+      color: #b83b5e;
+      margin-top: 4px;
+    }
     .bouquet-art-box {
       background: linear-gradient(180deg, #fff2f7 0%, #ffe3ee 100%);
       border-radius: 28px;
@@ -1070,29 +1208,48 @@
       flex-wrap: wrap;
     }
     .bouquet-wrapper-paper {
-      width: 160px; height: 90px;
+      width: 160px;
+      height: 90px;
       border-radius: 12px 12px 48px 48px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
       z-index: 1;
       position: relative;
     }
-    .wrap-pink { background: linear-gradient(145deg, #f2789a, #d63384); color: #fff; }
-    .wrap-gold { background: linear-gradient(145deg, #ffe066, #d4a373); color: #333; }
-    .wrap-rustic { background: linear-gradient(145deg, #ddbea9, #a5a58d); color: #fff; }
-    .wrap-lace { background: linear-gradient(145deg, #ffffff, #e9ecef); border: 2px solid #d63384; color: #d63384; }
+    .wrap-pink {
+      background: linear-gradient(145deg, #f2789a, #d63384);
+      color: #fff;
+    }
+    .wrap-gold {
+      background: linear-gradient(145deg, #ffe066, #d4a373);
+      color: #333;
+    }
+    .wrap-rustic {
+      background: linear-gradient(145deg, #ddbea9, #a5a58d);
+      color: #fff;
+    }
+    .wrap-lace {
+      background: linear-gradient(145deg, #ffffff, #e9ecef);
+      border: 2px solid #d63384;
+      color: #d63384;
+    }
     .wrapper-ribbon-tag {
       font-size: 0.75rem;
       font-weight: 700;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255, 255, 255, 0.85);
       color: #b83b5e;
       padding: 4px 14px;
       border-radius: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
-    .bouquet-note-text { font-size: 0.8rem; font-style: italic; color: #7a5f69; margin-bottom: 18px; }
+    .bouquet-note-text {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7a5f69;
+      margin-bottom: 18px;
+    }
     .success-btn {
       background: linear-gradient(145deg, #f2789a, #d63384);
       font-size: 0.9rem;
@@ -1105,17 +1262,34 @@
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       box-shadow: 0 8px 20px rgba(214, 51, 132, 0.20);
     }
-    .success-btn:hover { transform: scale(1.04); }
+    .success-btn:hover {
+      transform: scale(1.04);
+    }
 
-    /* ==========================================================================
-       SCRAPBOOK, VINYL, PHOTO GRID
-       ========================================================================== */
-    .decorated-card { padding-top: 72px; }
-    .flower-badge { position: absolute; font-size: 1.4rem; opacity: 0.6; }
-    .badge-top-left { top: 18px; left: 18px; }
-    .badge-top-right { top: 18px; right: 18px; }
-    .badge-bottom-left { bottom: 18px; left: 18px; }
-    .badge-bottom-right { bottom: 18px; right: 18px; }
+    .decorated-card {
+      padding-top: 72px;
+    }
+    .flower-badge {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.6;
+    }
+    .badge-top-left {
+      top: 18px;
+      left: 18px;
+    }
+    .badge-top-right {
+      top: 18px;
+      right: 18px;
+    }
+    .badge-bottom-left {
+      bottom: 18px;
+      left: 18px;
+    }
+    .badge-bottom-right {
+      bottom: 18px;
+      right: 18px;
+    }
 
     .albums-grid {
       display: grid;
@@ -1128,18 +1302,25 @@
       border-radius: 18px;
       overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .album-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 18px 36px rgba(184, 59, 94, 0.08);
     }
-    .album-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .album-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
     .album-card h3 {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.5), transparent);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
       color: #fff;
       padding: 14px 12px 10px;
       font-size: 0.85rem;
@@ -1147,7 +1328,8 @@
     }
     .album-badge {
       position: absolute;
-      top: 12px; right: 12px;
+      top: 12px;
+      right: 12px;
       background: #b83b5e;
       color: #fff;
       font-size: 0.65rem;
@@ -1163,8 +1345,15 @@
       padding: 20px;
       margin-top: 24px;
     }
-    .vinyl-player-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
-    .song-select-wrap { font-size: 0.8rem; margin-bottom: 14px; }
+    .vinyl-player-box h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .song-select-wrap {
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
     .song-select-wrap select {
       padding: 6px 14px;
       border-radius: 30px;
@@ -1174,7 +1363,8 @@
       background: #fff;
     }
     .vinyl-record {
-      width: 90px; height: 90px;
+      width: 90px;
+      height: 90px;
       background: #1a1a1a;
       border-radius: 50%;
       margin: 0 auto;
@@ -1182,13 +1372,20 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s ease;
     }
-    .vinyl-record.spinning { animation: spin 3s linear infinite; }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .vinyl-record.spinning {
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
     .vinyl-center {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       background: #b83b5e;
       border-radius: 50%;
       display: flex;
@@ -1197,11 +1394,12 @@
       color: #fff;
       font-size: 0.8rem;
     }
-    .vinyl-caption { font-size: 0.75rem; color: #7a5f69; margin-top: 10px; }
+    .vinyl-caption {
+      font-size: 0.75rem;
+      color: #7a5f69;
+      margin-top: 10px;
+    }
 
-    /* ==========================================================================
-       PHOTO GRID & VAULT
-       ========================================================================== */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1219,7 +1417,9 @@
       transform: scale(1.03);
       box-shadow: 0 12px 28px rgba(184, 59, 94, 0.08);
     }
-    .photo-card.vault-item.hide { display: none !important; }
+    .photo-card.vault-item.hide {
+      display: none !important;
+    }
     .photo-card img {
       width: 100%;
       height: 140px;
@@ -1228,8 +1428,9 @@
     }
     .photo-tag {
       position: absolute;
-      top: 8px; left: 8px;
-      background: rgba(255,255,255,0.85);
+      top: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(4px);
       font-size: 0.6rem;
       padding: 2px 12px;
@@ -1247,10 +1448,17 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    .vault-count { color: #b83b5e; font-weight: 700; }
-    .vault-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vault-count {
+      color: #b83b5e;
+      font-weight: 700;
+    }
+    .vault-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
     .tag {
-      background: rgba(255,255,255,0.6);
+      background: rgba(255, 255, 255, 0.6);
       color: #4a343c;
       padding: 6px 16px;
       border-radius: 30px;
@@ -1260,7 +1468,10 @@
       font-size: 0.75rem;
       border: 1px solid transparent;
     }
-    .tag:hover { background: #fce8f0; color: #b83b5e; }
+    .tag:hover {
+      background: #fce8f0;
+      color: #b83b5e;
+    }
     .tag.active {
       background: #b83b5e;
       color: #fff;
@@ -1268,14 +1479,13 @@
       box-shadow: 0 4px 12px rgba(184, 59, 94, 0.15);
     }
 
-    /* ==========================================================================
-       LIGHTBOX
-       ========================================================================== */
     .lightbox {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.78);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
@@ -1284,18 +1494,34 @@
       z-index: 2000;
       animation: lightboxFadeIn 0.35s ease;
     }
-    @keyframes lightboxFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes lightboxFadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
     .lightbox img {
       max-width: 90%;
       max-height: 80vh;
       border-radius: 18px;
       animation: lightboxPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
     }
     @keyframes lightboxPop {
-      0% { transform: scale(0.7); opacity: 0; }
-      60% { transform: scale(1.04); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.04);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
     #lightbox-caption {
       color: #fff;
@@ -1304,70 +1530,154 @@
       font-weight: 400;
       animation: lightboxCaptionFade 0.5s ease 0.1s both;
     }
-    @keyframes lightboxCaptionFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes lightboxCaptionFade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     .close-lightbox {
       position: absolute;
-      top: 24px; right: 36px;
-      color: #fff; font-size: 2.8rem;
+      top: 24px;
+      right: 36px;
+      color: #fff;
+      font-size: 2.8rem;
       cursor: pointer;
       transition: transform 0.25s ease;
     }
-    .close-lightbox:hover { transform: scale(1.1) rotate(90deg); }
+    .close-lightbox:hover {
+      transform: scale(1.1) rotate(90deg);
+    }
 
-    /* ==========================================================================
-       RESPONSIVE
-       ========================================================================== */
     @media (max-width: 1100px) {
-      .lock-side-images { display: none; }
-      .side-stack { display: none; }
-      .side-letter-card { display: none; }
+      .lock-side-images {
+        display: none;
+      }
+      .side-stack {
+        display: none;
+      }
+      .side-letter-card {
+        display: none;
+      }
     }
     @media (max-width: 768px) {
-      .lock-card, .welcome-card, .wide-card { padding: 28px 20px; }
-      .menu-grid { grid-template-columns: 1fr; }
-      .albums-grid { grid-template-columns: 1fr; }
-      .photo-grid { grid-template-columns: 1fr 1fr; }
-      .script-title { font-size: 2.6rem; }
-      .pin-digit { width: 50px; height: 60px; font-size: 1.8rem; }
-      .passkey-inputs { gap: 10px; }
-      .envelope-box { width: 220px; height: 140px; }
-      .wax-seal-btn { width: 56px; height: 56px; font-size: 1.6rem; }
-      .flower-item { width: 76px; }
-      .flower-emoji { font-size: 2.2rem; }
-      .cake-emoji-big { font-size: 6rem; }
-      .birthday-popup-card .big-birthday-title { font-size: 3.2rem; }
-      .birthday-popup-card { padding: 32px 24px; }
+      .lock-card,
+      .welcome-card,
+      .wide-card {
+        padding: 28px 20px;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .albums-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .script-title {
+        font-size: 2.6rem;
+      }
+      .pin-digit {
+        width: 50px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+      .passkey-inputs {
+        gap: 10px;
+      }
+      .envelope-box {
+        width: 220px;
+        height: 140px;
+      }
+      .wax-seal-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 1.6rem;
+      }
+      .flower-item {
+        width: 76px;
+      }
+      .flower-emoji {
+        font-size: 2.2rem;
+      }
+      .cake-emoji-big {
+        font-size: 6rem;
+      }
+      .birthday-popup-card .big-birthday-title {
+        font-size: 3.2rem;
+      }
+      .birthday-popup-card {
+        padding: 32px 24px;
+      }
     }
     @media (max-width: 480px) {
-      .photo-grid { grid-template-columns: 1fr; }
-      .script-title { font-size: 2.2rem; }
-      .pin-digit { width: 44px; height: 52px; font-size: 1.6rem; }
-      .passkey-inputs { gap: 8px; }
-      .envelope-box { width: 180px; height: 112px; }
-      .wax-seal-btn { width: 48px; height: 48px; font-size: 1.3rem; }
-      .lock-screen-wrapper { padding: 10px; gap: 20px; }
-      .glass-box { padding: 24px 16px; }
-      .cake-emoji-big { font-size: 4.8rem; }
-      .cake-actions { flex-direction: column; align-items: center; }
-      .cake-btn { width: 100%; max-width: 240px; }
-      .birthday-popup-card .big-birthday-title { font-size: 2.6rem; }
-      .birthday-popup-card { padding: 24px 16px; }
-      .birthday-popup-card .popup-letter { padding: 16px; font-size: 0.85rem; }
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+      .script-title {
+        font-size: 2.2rem;
+      }
+      .pin-digit {
+        width: 44px;
+        height: 52px;
+        font-size: 1.6rem;
+      }
+      .passkey-inputs {
+        gap: 8px;
+      }
+      .envelope-box {
+        width: 180px;
+        height: 112px;
+      }
+      .wax-seal-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+      }
+      .lock-screen-wrapper {
+        padding: 10px;
+        gap: 20px;
+      }
+      .glass-box {
+        padding: 24px 16px;
+      }
+      .cake-emoji-big {
+        font-size: 4.8rem;
+      }
+      .cake-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cake-btn {
+        width: 100%;
+        max-width: 240px;
+      }
+      .birthday-popup-card .big-birthday-title {
+        font-size: 2.6rem;
+      }
+      .birthday-popup-card {
+        padding: 24px 16px;
+      }
+      .birthday-popup-card .popup-letter {
+        padding: 16px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- BACKGROUND CONTINUOUS FALLING FLOWERS -->
   <div id="falling-flowers-container" class="falling-flowers-container"></div>
-  <!-- CONTAINER FOR CLICK-TRIGGERED GIANT FALLING FLOWERS -->
   <div id="popup-flower-effect-container" class="popup-flower-effect-container"></div>
 
-  <!-- AUDIO ELEMENTS -->
   <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
   <audio id="birthday-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
 
-  <!-- STEP 1: PASSKEY LOCK SCREEN -->
   <section id="lock-screen" class="screen">
     <div class="lock-screen-wrapper">
       <div class="lock-side-images left-images">
@@ -1401,17 +1711,15 @@
     </div>
   </section>
 
-  <!-- DOG POPUP MODAL -->
   <div id="dog-modal" class="modal-overlay hidden">
     <div class="modal-card dog-modal-card">
-      <img src="a2e06364-80e2-439c-a8b5-4580ae35c82d.jfif" alt="Angry Dog" class="angry-dog-img" />
+      <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=200&h=200&fit=crop" alt="Angry Dog" class="angry-dog-img" />
       <h2 class="dog-modal-title">GRRR! Wrong Passkey! 🐶💢</h2>
       <p class="dog-modal-text">Guard Dog says: "You cannot pass blehh! Try again!"</p>
       <button class="retry-btn" id="retryBtn">Try Again 🦴</button>
     </div>
   </div>
 
-  <!-- STEP 2: ENVELOPE WELCOME SCREEN -->
   <section id="welcome-screen" class="screen hidden">
     <div class="card glass-box welcome-card">
       <h1 class="script-title welcome-title">Happy Birthday!</h1>
@@ -1430,7 +1738,6 @@
     </div>
   </section>
 
-  <!-- STEP 3: MAIN MENU -->
   <section id="menu-screen" class="screen hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1528,7 +1835,6 @@
     </div>
   </section>
 
-  <!-- STEP 4: LETTER SCREEN -->
   <section id="message-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1555,7 +1861,6 @@
     </div>
   </section>
 
-  <!-- STEP 5: GARDEN SCREEN -->
   <section id="flower-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1606,9 +1911,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       CAKE FOR YOU SCREEN
-       ========================================================================== -->
   <section id="cake-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1662,9 +1964,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       BIG BIRTHDAY POPUP (triggered by "Blow Candles" button)
-       ========================================================================== -->
   <div id="birthdayPopup" class="birthday-popup-overlay hidden">
     <div class="birthday-popup-card">
       <button class="popup-close" id="birthdayPopupClose">✕</button>
@@ -1683,7 +1982,6 @@
     </div>
   </div>
 
-  <!-- FLOWER DESCRIPTION MODAL -->
   <div id="flower-desc-modal" class="modal-overlay hidden">
     <div class="modal-card flower-desc-card">
       <button class="modal-close-btn" id="closeFlowerDescBtn">&times;</button>
@@ -1695,7 +1993,6 @@
     </div>
   </div>
 
-  <!-- FINAL BOUQUET MODAL -->
   <div id="final-bouquet-modal" class="modal-overlay hidden">
     <div class="modal-card final-bouquet-card">
       <button class="modal-close-btn" id="closeFinalBouquetBtn">&times;</button>
@@ -1711,7 +2008,6 @@
     </div>
   </div>
 
-  <!-- STEP 6: SCRAPBOOK SCREEN -->
   <section id="gallery-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-letter-card left-letter">
@@ -1765,7 +2061,6 @@
     </div>
   </section>
 
-  <!-- ALBUM DETAIL SCREEN -->
   <section id="album-detail-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1800,7 +2095,6 @@
     </div>
   </section>
 
-  <!-- STEP 7: PHOTO VAULT -->
   <section id="storage-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1848,7 +2142,6 @@
     </div>
   </section>
 
-  <!-- STEP 8: BABYS SCREEN -->
   <section id="babys-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
@@ -1869,8 +2162,8 @@
           <span style="font-size:0.75rem; color:#b83b5e; font-weight:700;">— Unknown 💕</span>
         </div>
         <div class="photo-grid" style="grid-template-columns:repeat(2,1fr); gap:14px;">
-          <div class="photo-card" data-img="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=600&fit=crop" data-caption="Baby smile"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=400&fit=crop" alt="Baby" /><span class="photo-tag">👶</span></div>
-          <div class="photo-card" data-img="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop" data-caption="Tiny toes"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&h=400&fit=crop" alt="Baby" /><span class="photo-tag">💕</span></div>
+          <div class="photo-card" data-img="c:\Users\user\Pictures\Screenshots\Screenshot 2026-07-17 104102.png" data-caption="Baby smile"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=400&fit=crop" alt="Baby" /><span class="photo-tag">👶</span></div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop" data-caption="Tiny toes"><img src="c:\Users\user\Pictures\Screenshots\Screenshot 2026-07-17 104102.png" alt="Baby" /><span class="photo-tag">💕</span></div>
           <div class="photo-card" data-img="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop" data-caption="Cute baby"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&h=400&fit=crop" alt="Baby" /><span class="photo-tag">🌸</span></div>
           <div class="photo-card" data-img="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800&h=600&fit=crop" data-caption="Baby joy"><img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500&h=400&fit=crop" alt="Baby" /><span class="photo-tag">🌟</span></div>
         </div>
@@ -1886,7 +2179,6 @@
     </div>
   </section>
 
-  <!-- LIGHTBOX MODAL -->
   <div id="lightbox-modal" class="lightbox hidden">
     <span class="close-lightbox" id="closeLightboxBtn">&times;</span>
     <img id="lightbox-img" src="" alt="Enlarged View" />
@@ -1894,9 +2186,6 @@
   </div>
 
   <script>
-    // ==========================================================================
-    // STATE MANAGEMENT
-    // ==========================================================================
     const CORRECT_PASSKEY = "0724";
     let isMusicPlaying = false;
     let selectedFlowers = [];
@@ -1906,7 +2195,6 @@
     let letterTyped = false;
     let isTransitioning = false;
 
-    // Cake state
     let cakeState = {
       lit: true,
       wishCount: 0
@@ -1919,18 +2207,12 @@
       initCakePage();
     });
 
-    // ==========================================================================
-    // CAKE PAGE INTERACTIONS
-    // ==========================================================================
     function initCakePage() {
       const cakeEmoji = document.getElementById('cakeEmoji');
-      const candleFlame = document.getElementById('candleFlame');
-
       cakeEmoji.addEventListener('click', function(e) {
         e.stopPropagation();
         makeWish();
       });
-
       document.getElementById('cakeWishBtn').addEventListener('click', makeWish);
       document.getElementById('cakeBlowBtn').addEventListener('click', blowCandles);
       document.getElementById('cakeResetBtn').addEventListener('click', relightCandles);
@@ -1938,11 +2220,10 @@
 
     function makeWish() {
       if (!cakeState.lit) {
-        document.getElementById('cakeMessage').innerHTML = 
+        document.getElementById('cakeMessage').innerHTML =
           '🕯️ The candles are out! <span class="highlight">Click "Relight"</span> to make another wish! ✨';
         return;
       }
-
       cakeState.wishCount++;
       const wishes = [
         '✨ Your wish has been sent to the stars! ✨',
@@ -1954,68 +2235,48 @@
         '🌺 Every day is a gift, just like you! 🌺',
         '🌟 The universe is conspiring for you! 🌟'
       ];
-
       const wishText = document.getElementById('cakeWishText');
       const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
       wishText.innerHTML = `<span class="wish-emoji">💫</span> ${randomWish}`;
-
-      document.getElementById('cakeMessage').innerHTML = 
+      document.getElementById('cakeMessage').innerHTML =
         `🎂 You made a wish! <span class="highlight">${cakeState.wishCount} wishes</span> so far! 💕`;
-
       for (let i = 0; i < 6; i++) {
         setTimeout(() => {
-          const emojis = ['🌸','🌷','🌹','🌺','🌻','🪷','💐','🎉','✨','⭐'];
+          const emojis = ['🌸', '🌷', '🌹', '🌺', '🌻', '🪷', '💐', '🎉', '✨', '⭐'];
           triggerFallingFlowerEffect(emojis[Math.floor(Math.random() * emojis.length)]);
         }, i * 150);
       }
-
       if (navigator.vibrate) navigator.vibrate(20);
     }
 
-    // ==========================================================================
-    // BLOW CANDLES → shows BIG BIRTHDAY POPUP with letter
-    // ==========================================================================
     function blowCandles() {
       if (!cakeState.lit) {
-        document.getElementById('cakeMessage').innerHTML = 
+        document.getElementById('cakeMessage').innerHTML =
           '🕯️ The candles are already blown out! Click <span class="highlight">"Relight"</span> to light them again!';
         return;
       }
-
       cakeState.lit = false;
       const flame = document.getElementById('candleFlame');
       flame.classList.add('hidden');
-
-      document.getElementById('cakeMessage').innerHTML = 
+      document.getElementById('cakeMessage').innerHTML =
         '💨 You blew out the candles! <span class="highlight">🎉 Happy Birthday!</span> ✨';
-
-      document.getElementById('cakeWishText').innerHTML = 
+      document.getElementById('cakeWishText').innerHTML =
         '<span class="wish-emoji">🎂</span> Candles are out! Click "Relight" to make another wish!';
-
-      // ---- SHOW THE BIG BIRTHDAY POPUP WITH LETTER ----
       showBirthdayPopup();
-
-      // Trigger celebration flowers
       for (let i = 0; i < 10; i++) {
         setTimeout(() => {
-          const emojis = ['🌸','🌷','🌹','🌺','🌻','🪷','💐','🎉','✨','⭐','🎂','🕯️','🎈','🎁'];
+          const emojis = ['🌸', '🌷', '🌹', '🌺', '🌻', '🪷', '💐', '🎉', '✨', '⭐', '🎂', '🕯️', '🎈', '🎁'];
           triggerFallingFlowerEffect(emojis[Math.floor(Math.random() * emojis.length)]);
         }, i * 120);
       }
-
-      // Play birthday song
       const birthdayAudio = document.getElementById('birthday-song');
       if (birthdayAudio) {
         birthdayAudio.currentTime = 0;
         birthdayAudio.play().catch(e => console.log('Audio play blocked:', e));
       }
-
       if (navigator.vibrate) navigator.vibrate(50);
     }
 
-    // ==========================================================================
-    // SHOW BIRTHDAY POPUP
-    // ==========================================================================
     function showBirthdayPopup() {
       const popup = document.getElementById('birthdayPopup');
       popup.classList.remove('hidden');
@@ -2032,23 +2293,16 @@
       cakeState.lit = true;
       const flame = document.getElementById('candleFlame');
       flame.classList.remove('hidden');
-
-      document.getElementById('cakeMessage').innerHTML = 
+      document.getElementById('cakeMessage').innerHTML =
         '🕯️ The candles are lit! <span class="highlight">Tap the cake</span> to make a wish! ✨';
-
-      document.getElementById('cakeWishText').innerHTML = 
+      document.getElementById('cakeWishText').innerHTML =
         '<span class="wish-emoji">💫</span> Make a wish, and it might come true!';
-
       for (let i = 0; i < 4; i++) {
         setTimeout(() => triggerFallingFlowerEffect('🎉'), i * 150);
       }
-
       if (navigator.vibrate) navigator.vibrate(15);
     }
 
-    // ==========================================================================
-    // STEP 1: PASSKEY
-    // ==========================================================================
     function checkPasskey() {
       const pin1 = document.getElementById("pin-1").value;
       const pin2 = document.getElementById("pin-2").value;
@@ -2068,19 +2322,21 @@
         document.getElementById("pin-1").focus();
       }
     }
-    function closeDogModal() { document.getElementById("dog-modal").classList.add("hidden"); }
 
-    // ==========================================================================
-    // ENVELOPE + BLOOM
-    // ==========================================================================
+    function closeDogModal() {
+      document.getElementById("dog-modal").classList.add("hidden");
+    }
+
     function openEnvelope() {
       const envelope = document.getElementById("envelopeBox");
       if (envelope.classList.contains("open")) return;
       const birthdayAudio = document.getElementById("birthday-song");
-      if (birthdayAudio) { birthdayAudio.currentTime = 0; birthdayAudio.play().catch(e => console.log(e)); }
+      if (birthdayAudio) { birthdayAudio.currentTime = 0;
+        birthdayAudio.play().catch(e => console.log(e)); }
       envelope.classList.add("open");
       const hint = document.querySelector(".envelope-hint");
-      if (hint) { hint.style.transition = "opacity 0.6s ease"; hint.style.opacity = "0.3"; }
+      if (hint) { hint.style.transition = "opacity 0.6s ease";
+        hint.style.opacity = "0.3"; }
       launchBloomBurst();
       for (let i = 0; i < 6; i++) setTimeout(() => spawnFloatFlower(), 200 + i * 150);
       setTimeout(() => showScreen("menu-screen"), 1500);
@@ -2089,8 +2345,8 @@
     function launchBloomBurst() {
       const container = document.getElementById("popup-flower-effect-container");
       if (!container) return;
-      const flowerEmojis = ['🌸','🌷','🌹','🌺','🌻','🪷','💐','🌼'];
-      const sparkleEmojis = ['✨','⭐','🌟','💖','🌸','🌺','💕','🌷'];
+      const flowerEmojis = ['🌸', '🌷', '🌹', '🌺', '🌻', '🪷', '💐', '🌼'];
+      const sparkleEmojis = ['✨', '⭐', '🌟', '💖', '🌸', '🌺', '💕', '🌷'];
       for (let i = 0; i < 26; i++) {
         const f = document.createElement('div');
         f.className = 'big-falling-flower';
@@ -2114,10 +2370,11 @@
         setTimeout(() => s.remove(), 2600 + d * 1000);
       }
     }
+
     function spawnFloatFlower() {
       const container = document.getElementById("popup-flower-effect-container");
       if (!container) return;
-      const emojis = ['🌸','🌷','🌹','🌺','🌻','🪷','💐','🌼'];
+      const emojis = ['🌸', '🌷', '🌹', '🌺', '🌻', '🪷', '💐', '🌼'];
       const f = document.createElement('div');
       f.className = 'big-falling-flower';
       f.innerText = emojis[Math.floor(Math.random() * emojis.length)];
@@ -2143,9 +2400,6 @@
       setTimeout(() => f.remove(), dur * 1000 + 200);
     }
 
-    // ==========================================================================
-    // NAVIGATION
-    // ==========================================================================
     function showScreen(screenId) {
       const target = document.getElementById(screenId);
       if (!target) return;
@@ -2162,6 +2416,7 @@
         isTransitioning = false;
       }, 380);
     }
+
     function reveal(target, screenId) {
       target.classList.remove("hidden");
       target.classList.add("fade-in-start");
@@ -2170,17 +2425,16 @@
       if (screenId === "message-screen" && !letterTyped) startTypingAnimation();
     }
 
-    // ==========================================================================
-    // TYPING
-    // ==========================================================================
     function startTypingAnimation() {
       if (letterTyped) return;
       letterTyped = true;
       const container = document.getElementById("letterContent");
       if (!container) return;
-      const fullText = "Dearest Birthday Star,\n\nHappy Birthday! Today is all about celebrating you, your kindness, and all the beautiful light you bring into every room you step into.\n\nLooking back at all our shared moments, I feel so lucky for every laugh, every late-night chat, and every quiet adventure we have created together. You have a rare gift of making even ordinary days feel special.\n\nMay this coming year bring you endless happiness, health, fulfillment, and all the dreams you're quietly working toward. Never forget how genuinely appreciated and loved you are.\n\nWith all my love and best wishes,\nForever & Always 💕";
+      const fullText =
+        "Dearest Birthday Star,\n\nHappy Birthday! Today is all about celebrating you, your kindness, and all the beautiful light you bring into every room you step into.\n\nLooking back at all our shared moments, I feel so lucky for every laugh, every late-night chat, and every quiet adventure we have created together. You have a rare gift of making even ordinary days feel special.\n\nMay this coming year bring you endless happiness, health, fulfillment, and all the dreams you're quietly working toward. Never forget how genuinely appreciated and loved you are.\n\nWith all my love and best wishes,\nForever & Always 💕";
       const paras = fullText.split(/\n\n/);
-      let paraIdx = 0, charIdx = 0;
+      let paraIdx = 0,
+        charIdx = 0;
       const els = [];
       for (let i = 0; i < paras.length; i++) {
         const p = document.createElement('p');
@@ -2190,76 +2444,101 @@
         container.appendChild(p);
         els.push(p);
       }
+
       function type() {
         if (paraIdx >= paras.length) { const c = container.querySelector('.typing-cursor'); if (c) c.remove(); return; }
         const curr = paras[paraIdx];
         const el = els[paraIdx];
         if (charIdx === 0) el.textContent = '';
         const ch = curr[charIdx];
-        if (ch) { el.textContent += ch; charIdx++; }
+        if (ch) { el.textContent += ch;
+          charIdx++; }
         if (charIdx >= curr.length) {
-          paraIdx++; charIdx = 0;
-          const c = container.querySelector('.typing-cursor'); if (c) c.remove();
-          if (paraIdx < paras.length) { const span = document.createElement('span'); span.className = 'typing-cursor'; els[paraIdx].appendChild(span); }
+          paraIdx++;
+          charIdx = 0;
+          const c = container.querySelector('.typing-cursor');
+          if (c) c.remove();
+          if (paraIdx < paras.length) { const span = document.createElement('span');
+            span.className = 'typing-cursor';
+            els[paraIdx].appendChild(span); }
         } else {
-          const c = container.querySelector('.typing-cursor'); if (c) c.remove();
-          const span = document.createElement('span'); span.className = 'typing-cursor'; el.appendChild(span);
+          const c = container.querySelector('.typing-cursor');
+          if (c) c.remove();
+          const span = document.createElement('span');
+          span.className = 'typing-cursor';
+          el.appendChild(span);
         }
-        const body = document.getElementById("letterBody"); if (body) body.scrollTop = body.scrollHeight;
+        const body = document.getElementById("letterBody");
+        if (body) body.scrollTop = body.scrollHeight;
       }
       if (typingInterval) clearInterval(typingInterval);
-      const firstCursor = document.createElement('span'); firstCursor.className = 'typing-cursor'; els[0].appendChild(firstCursor);
+      const firstCursor = document.createElement('span');
+      firstCursor.className = 'typing-cursor';
+      els[0].appendChild(firstCursor);
       typingInterval = setInterval(type, 25);
     }
 
-    // ==========================================================================
-    // GARDEN / BOUQUET
-    // ==========================================================================
     function showFlowerDescription(name, emoji, desc) {
       currentFlowerData = { name, emoji };
-      if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(name); u.rate = 0.9; u.pitch = 1.1; window.speechSynthesis.speak(u); }
+      if ('speechSynthesis' in window) { window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(name);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        window.speechSynthesis.speak(u); }
       document.getElementById('desc-flower-emoji').textContent = emoji;
       document.getElementById('desc-flower-name').textContent = name;
       document.getElementById('desc-flower-text').textContent = desc;
       document.getElementById('flower-desc-modal').classList.remove('hidden');
     }
+
     function addFlowerToBouquetFromDesc() {
-      if (currentFlowerData) { addFlowerToBouquet(currentFlowerData.emoji, currentFlowerData.name); document.getElementById('flower-desc-modal').classList.add('hidden'); currentFlowerData = null; }
+      if (currentFlowerData) { addFlowerToBouquet(currentFlowerData.emoji, currentFlowerData.name);
+        document.getElementById('flower-desc-modal').classList.add('hidden');
+        currentFlowerData = null; }
     }
+
     function addFlowerToBouquet(emoji, name) {
       triggerFallingFlowerEffect(emoji);
       selectedFlowers.push({ emoji, name });
       const box = document.getElementById("assembled-flowers");
-      const ph = box.querySelector(".placeholder-text"); if (ph) ph.style.display = "none";
+      const ph = box.querySelector(".placeholder-text");
+      if (ph) ph.style.display = "none";
       const badge = document.createElement("span");
       badge.className = "bouquet-flower-item";
       badge.innerHTML = `${emoji} ${name}`;
       box.appendChild(badge);
     }
+
     function selectWrapper(label, cls) {
       selectedWrapperStyle = { label, class: cls };
       document.querySelectorAll(".wrapper-btn").forEach(b => { b.classList.toggle("active", b.dataset.wrapper === label); });
     }
+
     function resetBouquet() {
       selectedFlowers = [];
-      document.getElementById("assembled-flowers").innerHTML = '<span class="placeholder-text">Click flowers above to start assembling your custom bouquet!</span>';
+      document.getElementById("assembled-flowers").innerHTML =
+        '<span class="placeholder-text">Click flowers above to start assembling your custom bouquet!</span>';
     }
+
     function confirmAndBuildBouquet() {
       if (selectedFlowers.length === 0) { alert("Please select at least one flower before creating your bouquet! 🌸"); return; }
       const cluster = document.getElementById("final-blooms-cluster");
       cluster.innerHTML = "";
-      selectedFlowers.forEach(f => { const s = document.createElement("span"); s.innerText = f.emoji; cluster.appendChild(s); });
+      selectedFlowers.forEach(f => { const s = document.createElement("span");
+        s.innerText = f.emoji;
+        cluster.appendChild(s); });
       const paper = document.getElementById("final-wrapper-paper");
       paper.className = `bouquet-wrapper-paper ${selectedWrapperStyle.class}`;
       document.getElementById("final-ribbon-tag").innerText = selectedWrapperStyle.label;
-      for (let i = 0; i < 8; i++) setTimeout(() => { const r = selectedFlowers[Math.floor(Math.random() * selectedFlowers.length)].emoji; triggerFallingFlowerEffect(r); }, i * 200);
+      for (let i = 0; i < 8; i++) setTimeout(() => { const r = selectedFlowers[Math.floor(Math.random() * selectedFlowers.length)].emoji;
+        triggerFallingFlowerEffect(r); }, i * 200);
       document.getElementById("final-bouquet-modal").classList.remove("hidden");
     }
-    function closeFinalBouquetModal() { document.getElementById("final-bouquet-modal").classList.add("hidden"); }
 
-    // ==========================================================================
-    // VAULT FILTERS
-    // ==========================================================================
+    function closeFinalBouquetModal() {
+      document.getElementById("final-bouquet-modal").classList.add("hidden");
+    }
+
     function initVaultFilters() {
       const btns = document.querySelectorAll(".vault-tags .filter-btn");
       const items = document.querySelectorAll(".vault-grid .vault-item");
@@ -2272,16 +2551,14 @@
           let visible = 0;
           items.forEach(item => {
             const cat = item.dataset.category;
-            if (filter === "all" || filter === cat) { item.classList.remove("hide"); visible++; } else { item.classList.add("hide"); }
+            if (filter === "all" || filter === cat) { item.classList.remove("hide");
+              visible++; } else { item.classList.add("hide"); }
           });
           if (count) count.innerHTML = `<i class="fa-solid fa-database"></i> ${visible} Memories Stored`;
         });
       });
     }
 
-    // ==========================================================================
-    // MUSIC
-    // ==========================================================================
     function toggleMusic() {
       const audio = document.getElementById("bg-music");
       const vinyl = document.getElementById("vinyl-record");
@@ -2292,33 +2569,38 @@
         status.innerText = "Music Paused ⏸️ Click record to play";
         isMusicPlaying = false;
       } else {
-        audio.play().then(() => { vinyl.classList.add("spinning"); status.innerText = "Playing melody... 🎶 Click to pause"; isMusicPlaying = true; }).catch(e => console.log(e));
+        audio.play().then(() => { vinyl.classList.add("spinning");
+          status.innerText = "Playing melody... 🎶 Click to pause";
+          isMusicPlaying = true; }).catch(e => console.log(e));
       }
     }
-    function changeSong(src) { const audio = document.getElementById("bg-music"); audio.src = src; if (isMusicPlaying) audio.play(); }
 
-    // ==========================================================================
-    // LIGHTBOX
-    // ==========================================================================
+    function changeSong(src) { const audio = document.getElementById("bg-music");
+      audio.src = src; if (isMusicPlaying) audio.play(); }
+
     function openLightbox(imgSrc, caption) {
       const modal = document.getElementById("lightbox-modal");
       const img = document.getElementById("lightbox-img");
       const cap = document.getElementById("lightbox-caption");
-      img.src = imgSrc; cap.innerText = caption;
+      img.src = imgSrc;
+      cap.innerText = caption;
       modal.classList.remove("hidden");
-      img.style.animation = "none"; cap.style.animation = "none";
+      img.style.animation = "none";
+      cap.style.animation = "none";
       void modal.offsetWidth;
-      img.style.animation = ""; cap.style.animation = "";
+      img.style.animation = "";
+      cap.style.animation = "";
       document.body.style.overflow = 'hidden';
     }
-    function closeLightbox() { document.getElementById("lightbox-modal").classList.add("hidden"); document.body.style.overflow = ''; }
 
-    // ==========================================================================
-    // BACKGROUND FLOWERS
-    // ==========================================================================
+    function closeLightbox() {
+      document.getElementById("lightbox-modal").classList.add("hidden");
+      document.body.style.overflow = '';
+    }
+
     function initContinuousFlowers() {
       const container = document.getElementById("falling-flowers-container");
-      const emojis = ["🌸","🌷","🌺","🌻","💐","🌹","🪷"];
+      const emojis = ["🌸", "🌷", "🌺", "🌻", "💐", "🌹", "🪷"];
       setInterval(() => {
         const f = document.createElement("div");
         f.className = "bg-flower";
@@ -2331,66 +2613,76 @@
       }, 700);
     }
 
-    // ==========================================================================
-    // EVENT LISTENERS
-    // ==========================================================================
     function initEventListeners() {
       document.getElementById("unlockBtn").addEventListener("click", checkPasskey);
       document.getElementById("retryBtn").addEventListener("click", closeDogModal);
-      
+
       const envelopeBox = document.getElementById("envelopeBox");
       const waxSealBtn = document.getElementById("waxSealBtn");
-      waxSealBtn.addEventListener("click", e => { e.stopPropagation(); openEnvelope(); });
+      waxSealBtn.addEventListener("click", e => { e.stopPropagation();
+        openEnvelope(); });
       envelopeBox.addEventListener("click", e => { if (!e.target.closest('.wax-seal-btn')) openEnvelope(); });
-      
-      document.querySelectorAll(".menu-card[data-screen]").forEach(c => c.addEventListener("click", function() { showScreen(this.dataset.screen); }));
-      document.querySelectorAll(".back-btn[data-back]").forEach(b => b.addEventListener("click", function() { showScreen(this.dataset.back); }));
-      document.querySelectorAll(".album-card[data-screen]").forEach(c => c.addEventListener("click", function() { showScreen(this.dataset.screen); }));
-      
-      document.querySelectorAll(".flower-item").forEach(item => item.addEventListener("click", function() { showFlowerDescription(this.dataset.flower, this.dataset.emoji, this.dataset.desc); }));
+
+      document.querySelectorAll(".menu-card[data-screen]").forEach(c => c.addEventListener("click", function() { showScreen(
+          this.dataset.screen); }));
+      document.querySelectorAll(".back-btn[data-back]").forEach(b => b.addEventListener("click", function() { showScreen(this
+          .dataset.back); }));
+      document.querySelectorAll(".album-card[data-screen]").forEach(c => c.addEventListener("click", function() { showScreen(
+          this.dataset.screen); }));
+
+      document.querySelectorAll(".flower-item").forEach(item => item.addEventListener("click", function() { showFlowerDescription(
+          this.dataset.flower, this.dataset.emoji, this.dataset.desc); }));
       document.getElementById("addToBouquetFromDesc").addEventListener("click", addFlowerToBouquetFromDesc);
-      document.getElementById("closeFlowerDescBtn").addEventListener("click", () => document.getElementById("flower-desc-modal").classList.add("hidden"));
-      document.getElementById("flower-desc-modal").addEventListener("click", function(e) { if (e.target === this) this.classList.add("hidden"); });
-      
+      document.getElementById("closeFlowerDescBtn").addEventListener("click", () => document.getElementById(
+        "flower-desc-modal").classList.add("hidden"));
+      document.getElementById("flower-desc-modal").addEventListener("click", function(e) { if (e.target === this) this
+          .classList.add("hidden"); });
+
       document.getElementById("resetBouquetBtn").addEventListener("click", resetBouquet);
       document.getElementById("createBouquetBtn").addEventListener("click", confirmAndBuildBouquet);
       document.getElementById("closeFinalBouquetBtn").addEventListener("click", closeFinalBouquetModal);
       document.getElementById("keepBouquetBtn").addEventListener("click", closeFinalBouquetModal);
-      document.getElementById("final-bouquet-modal").addEventListener("click", function(e) { if (e.target === this) this.classList.add("hidden"); });
-      
-      document.querySelectorAll(".wrapper-btn").forEach(b => b.addEventListener("click", function() { selectWrapper(this.dataset.wrapper, this.dataset.class); }));
-      
+      document.getElementById("final-bouquet-modal").addEventListener("click", function(e) { if (e.target === this) this
+          .classList.add("hidden"); });
+
+      document.querySelectorAll(".wrapper-btn").forEach(b => b.addEventListener("click", function() { selectWrapper(this
+          .dataset.wrapper, this.dataset.class); }));
+
       document.getElementById("vinyl-record").addEventListener("click", toggleMusic);
       document.getElementById("song-select").addEventListener("change", function() { changeSong(this.value); });
-      
-      document.querySelectorAll(".photo-card[data-img]").forEach(c => c.addEventListener("click", function() { openLightbox(this.dataset.img, this.dataset.caption); }));
-      document.querySelectorAll(".vault-item").forEach(item => item.addEventListener("click", function() { openLightbox(this.dataset.img, this.dataset.caption); }));
-      
+
+      document.querySelectorAll(".photo-card[data-img]").forEach(c => c.addEventListener("click", function() { openLightbox(
+          this.dataset.img, this.dataset.caption); }));
+      document.querySelectorAll(".vault-item").forEach(item => item.addEventListener("click", function() { openLightbox(this
+          .dataset.img, this.dataset.caption); }));
+
       document.getElementById("closeLightboxBtn").addEventListener("click", closeLightbox);
-      document.getElementById("lightbox-modal").addEventListener("click", function(e) { if (e.target === this) closeLightbox(); });
-      
-      // Birthday popup events
+      document.getElementById("lightbox-modal").addEventListener("click", function(e) { if (e.target === this)
+        closeLightbox(); });
+
       document.getElementById("birthdayPopupClose").addEventListener("click", closeBirthdayPopup);
       document.getElementById("birthdayPopupBtn").addEventListener("click", closeBirthdayPopup);
-      document.getElementById("birthdayPopup").addEventListener("click", function(e) { if (e.target === this) closeBirthdayPopup(); });
-      
+      document.getElementById("birthdayPopup").addEventListener("click", function(e) { if (e.target === this)
+        closeBirthdayPopup(); });
+
       document.addEventListener("keydown", e => {
-        if (e.key === "Escape") { 
-          closeDogModal(); 
-          document.getElementById("flower-desc-modal").classList.add("hidden"); 
-          closeFinalBouquetModal(); 
+        if (e.key === "Escape") {
+          closeDogModal();
+          document.getElementById("flower-desc-modal").classList.add("hidden");
+          closeFinalBouquetModal();
           closeLightbox();
           closeBirthdayPopup();
         }
       });
-      
+
       document.querySelectorAll(".pin-digit").forEach((input, index) => {
         input.addEventListener("input", function() {
           if (this.value.length === 1 && index < 3) document.querySelectorAll(".pin-digit")[index + 1].focus();
           if (index === 3 && this.value.length === 1) checkPasskey();
         });
         input.addEventListener("keydown", function(e) {
-          if (e.key === "Backspace" && this.value.length === 0 && index > 0) document.querySelectorAll(".pin-digit")[index - 1].focus();
+          if (e.key === "Backspace" && this.value.length === 0 && index > 0) document.querySelectorAll(".pin-digit")[
+            index - 1].focus();
         });
       });
     }
