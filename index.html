@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday! 💕</title>
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BACKGROUND CONTINUOUS FALLING FLOWERS -->
+  <div id="falling-flowers-container" class="falling-flowers-container"></div>
+
+  <!-- CONTAINER FOR CLICK-TRIGGERED GIANT FALLING FLOWERS -->
+  <div id="popup-flower-effect-container" class="popup-flower-effect-container"></div>
+
+  <!-- AUDIO ELEMENT FOR MUSIC -->
+  <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+  <!-- STEP 1: PASSKEY LOCK SCREEN WITH IMAGES ON SIDES -->
+  <section id="lock-screen" class="screen">
+    <div class="lock-screen-wrapper">
+      
+      <!-- LEFT SIDE IMAGES -->
+      <div class="lock-side-images left-images">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200" alt="Memory 1" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200" alt="Memory 2" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200" alt="Memory 3" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200" alt="Memory 4" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=200" alt="Memory 5" class="side-img" />
+      </div>
+
+      <!-- CENTER LOCK CARD -->
+      <div class="card glass-box lock-card">
+        <div class="lock-flower-icon">🌸</div>
+        <h1 class="script-title lock-title">Secret Garden</h1>
+        <p class="subtitle">Enter the 4-digit passkey to unlock your birthday surprise!</p>
+        
+        <div class="passkey-inputs" id="pinContainer">
+          <input type="password" maxlength="1" class="pin-digit" id="pin-1" autocomplete="off" />
+          <input type="password" maxlength="1" class="pin-digit" id="pin-2" autocomplete="off" />
+          <input type="password" maxlength="1" class="pin-digit" id="pin-3" autocomplete="off" />
+          <input type="password" maxlength="1" class="pin-digit" id="pin-4" autocomplete="off" />
+        </div>
+
+        <button class="unlock-btn" id="unlockBtn">Unlock ✨</button>
+      </div>
+
+      <!-- RIGHT SIDE IMAGES -->
+      <div class="lock-side-images right-images">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200" alt="Memory 6" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200" alt="Memory 7" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=200" alt="Memory 8" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200" alt="Memory 9" class="side-img" />
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Memory 10" class="side-img" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOG POPUP MODAL FOR WRONG PASSKEY -->
+  <div id="dog-modal" class="modal-overlay hidden">
+    <div class="modal-card dog-modal-card">
+      <div class="dog-image-wrap">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500" alt="Angry Dog Guard" class="angry-dog-img" />
+      </div>
+      <h2 class="dog-modal-title">GRRR! Wrong Passkey! 🐶💢</h2>
+      <p class="dog-modal-text">Guard Dog says: "You cannot pass! Try again!"</p>
+      <button class="retry-btn" id="retryBtn">Try Again 🦴</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: ENVELOPE WELCOME SCREEN -->
+  <section id="welcome-screen" class="screen hidden">
+    <div class="card glass-box welcome-card">
+      <h1 class="script-title welcome-title">Happy Birthday!</h1>
+      
+      <div class="envelope-container">
+        <div class="envelope-box" id="envelopeBox">
+          <button class="wax-seal-btn" aria-label="Open Envelope">
+            <span class="seal-flower">🌷</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="envelope-hint">👉 Click the wax seal to open</p>
+    </div>
+  </section>
+
+  <!-- STEP 3: MAIN MENU -->
+  <section id="menu-screen" class="screen hidden">
+    <div class="menu-layout-wrapper">
+      
+      <!-- LEFT SIDE STACK -->
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Memory Left 1" />
+          <p class="side-caption">Cute Moments ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Memory Left 2" />
+          <p class="side-caption">Sweet Days 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Memory Left 3" />
+          <p class="side-caption">Sunsets 🌅</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Memory Left 4" />
+          <p class="side-caption">Adventures 🌾</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Memory Left 5" />
+          <p class="side-caption">Pretty Smile 💖</p>
+        </div>
+      </div>
+
+      <!-- CENTER MAIN MENU CARD -->
+      <div class="card glass-box wide-card menu-center-card">
+        <h1 class="script-title">These are for you</h1>
+        <p class="subtitle">Pick a surprise to unlock 💕</p>
+
+        <div class="menu-grid">
+          <div class="menu-card" data-screen="message-screen">
+            <div class="icon-wrap"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <h3>Letter</h3>
+            <span class="card-badge">Read</span>
+          </div>
+
+          <div class="menu-card" data-screen="flower-screen">
+            <div class="icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Garden & Bouquet</h3>
+            <span class="card-badge">Pick Flowers</span>
+          </div>
+
+          <div class="menu-card" data-screen="gallery-screen">
+            <div class="icon-wrap"><i class="fa-solid fa-images"></i></div>
+            <h3>Scrapbook</h3>
+            <span class="card-badge">View Albums</span>
+          </div>
+
+          <div class="menu-card" data-screen="storage-screen">
+            <div class="icon-wrap"><i class="fa-solid fa-box-archive"></i></div>
+            <h3>Photo Vault</h3>
+            <span class="card-badge">All Storage 📸</span>
+          </div>
+
+          <div class="menu-card" data-screen="babys-screen">
+            <div class="icon-wrap"><i class="fa-solid fa-baby"></i></div>
+            <h3>Babys</h3>
+            <span class="card-badge">Cute Moments 👶</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE STACK -->
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Memory Right 1" />
+          <p class="side-caption">Best Memories 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Memory Right 2" />
+          <p class="side-caption">Joy & Laughter ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Memory Right 3" />
+          <p class="side-caption">Celebrations 🎉</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500" alt="Memory Right 4" />
+          <p class="side-caption">Special Day 🎈</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Memory Right 5" />
+          <p class="side-caption">Always Together 💕</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STEP 4: EXPANDED LETTER SCREEN -->
+  <section id="message-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Letter Left 1" />
+          <p class="side-caption">First Hello 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Letter Left 2" />
+          <p class="side-caption">Warm Smiles ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Letter Left 3" />
+          <p class="side-caption">Sweet Dreams 🌙</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Letter Left 4" />
+          <p class="side-caption">Unforgettable 💐</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Letter Left 5" />
+          <p class="side-caption">My Favorite 💖</p>
+        </div>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card letter-main-card">
+        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+        <h2 class="script-title">A Special Letter For You 💌</h2>
+        
+        <div class="long-letter-body">
+          <p class="letter-p">Dearest Birthday Star,</p>
+          <p class="letter-p">Happy Birthday! Today is all about celebrating you, your kindness, and all the beautiful light you bring into every room you step into.</p>
+          <p class="letter-p">Looking back at all our shared moments, I feel so lucky for every laugh, every late-night chat, and every quiet adventure we have created together. You have a rare gift of making even ordinary days feel special.</p>
+          <p class="letter-p">May this coming year bring you endless happiness, health, fulfillment, and all the dreams you're quietly working toward. Never forget how genuinely appreciated and loved you are.</p>
+          <p class="letter-p letter-closing">With all my love and best wishes,<br><strong>Forever & Always 💕</strong></p>
+        </div>
+      </div>
+
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Letter Right 1" />
+          <p class="side-caption">Happy Times 🎈</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Letter Right 2" />
+          <p class="side-caption">Laughter ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Letter Right 3" />
+          <p class="side-caption">Shining Bright 🌟</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500" alt="Letter Right 4" />
+          <p class="side-caption">Pure Bliss 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Letter Right 5" />
+          <p class="side-caption">Always Loved 💐</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5: GARDEN ROW & INTERACTIVE BOUQUET BUILDER -->
+  <section id="flower-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Garden Left 1" />
+          <p class="side-caption">Sweet Blossoms 🌸</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌺</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Garden Left 2" />
+          <p class="side-caption">Pure Joy ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Garden Left 3" />
+          <p class="side-caption">Sunny Days 🌻</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🌷</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Garden Left 4" />
+          <p class="side-caption">Pretty Views 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Garden Left 5" />
+          <p class="side-caption">Fresh Blooms 💐</p>
+        </div>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card">
+        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+        <h2 class="script-title">Your Garden Row</h2>
+        <p class="subtitle">🌸 Click a flower to learn about it & add to your bouquet!</p>
+
+        <div class="flower-row">
+          <div class="flower-item" data-flower="Rose" data-emoji="🌹" data-desc="The Rose symbolizes love and passion. Just like you, it's beautiful, timeless, and fills my heart with warmth!">
+            <span class="flower-emoji">🌹</span>
+            <p>Rose</p>
+          </div>
+          <div class="flower-item" data-flower="Tulip" data-emoji="🌷" data-desc="Tulips represent perfect love. Your presence in my life is a gift that blooms brighter every single day!">
+            <span class="flower-emoji">🌷</span>
+            <p>Tulip</p>
+          </div>
+          <div class="flower-item" data-flower="Sunflower" data-emoji="🌻" data-desc="Sunflowers follow the sun, just like my heart follows you. You bring light and joy to everything around you!">
+            <span class="flower-emoji">🌻</span>
+            <p>Sunflower</p>
+          </div>
+          <div class="flower-item" data-flower="Lily" data-emoji="🪷" data-desc="The Lily represents purity and devotion. Your kindness and gentle spirit inspire me every single day!">
+            <span class="flower-emoji">🪷</span>
+            <p>Lily</p>
+          </div>
+          <div class="flower-item" data-flower="Blossom" data-emoji="🌸" data-desc="Cherry Blossoms remind me of spring and new beginnings. You make my world feel like eternal spring!">
+            <span class="flower-emoji">🌸</span>
+            <p>Blossom</p>
+          </div>
+          <div class="flower-item" data-flower="Orchid" data-emoji="🌺" data-desc="Orchids symbolize exotic beauty and strength. You are unique, powerful, and absolutely breathtaking!">
+            <span class="flower-emoji">🌺</span>
+            <p>Orchid</p>
+          </div>
+        </div>
+
+        <div class="wrapper-selection-box">
+          <p class="section-label">Select Wrapper & Ribbon Design:</p>
+          <div class="wrapper-options">
+            <button class="wrapper-btn active" data-wrapper="Pink Silk 🎀" data-class="wrap-pink">Pink Silk 🎀</button>
+            <button class="wrapper-btn" data-wrapper="Golden Ribbon ✨" data-class="wrap-gold">Golden Ribbon ✨</button>
+            <button class="wrapper-btn" data-wrapper="Rustic Kraft 🌾" data-class="wrap-rustic">Rustic Kraft 🌾</button>
+            <button class="wrapper-btn" data-wrapper="Lace & Pearls 🤍" data-class="wrap-lace">Lace & Pearls 🤍</button>
+          </div>
+        </div>
+
+        <div class="bouquet-display">
+          <div class="bouquet-header">
+            <h3>Your Selected Flowers:</h3>
+            <button class="reset-bouquet-btn" id="resetBouquetBtn"><i class="fa-solid fa-trash-can"></i> Clear</button>
+          </div>
+          <div id="assembled-flowers" class="assembled-flowers">
+            <span class="placeholder-text">Click flowers above to start assembling your custom bouquet!</span>
+          </div>
+
+          <div class="confirm-bouquet-wrap">
+            <button class="create-bouquet-btn" id="createBouquetBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Create My Bouquet!</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Garden Right 1" />
+          <p class="side-caption">Golden Hour 🌅</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Garden Right 2" />
+          <p class="side-caption">Radiant Smile ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🌹</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Garden Right 3" />
+          <p class="side-caption">Special Moments 🎉</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Garden Right 4" />
+          <p class="side-caption">Always Loved 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌺</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Garden Right 5" />
+          <p class="side-caption">Garden Magic 💐</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLOWER DESCRIPTION MODAL -->
+  <div id="flower-desc-modal" class="modal-overlay hidden">
+    <div class="modal-card flower-desc-card">
+      <button class="modal-close-btn" id="closeFlowerDescBtn">&times;</button>
+      <div id="desc-flower-emoji" class="pop-flower-emoji">🌹</div>
+      <h2 id="desc-flower-name" class="script-title" style="font-size:2.4rem;">Rose</h2>
+      <div class="voice-badge"><i class="fa-solid fa-volume-high"></i> Speaking flower name...</div>
+      <p id="desc-flower-text" class="modal-desc">The Rose symbolizes love and passion. Just like you, it's beautiful, timeless, and fills my heart with warmth!</p>
+      <button class="add-to-bouquet-btn" id="addToBouquetFromDesc"><i class="fa-solid fa-plus-circle"></i> Add to Bouquet</button>
+    </div>
+  </div>
+
+  <!-- FINAL CELEBRATION BOUQUET POPUP MODAL -->
+  <div id="final-bouquet-modal" class="modal-overlay hidden">
+    <div class="modal-card final-bouquet-card">
+      <button class="modal-close-btn" id="closeFinalBouquetBtn">&times;</button>
+      
+      <div class="sparkle-header">✨ 🎉 🌸 🎉 ✨</div>
+      <h2 class="script-title congratulation-title">Congratulations!</h2>
+      <p class="congratulation-sub">Happy Birthday! This is your special custom bouquet! 💖</p>
+      
+      <div class="bouquet-art-box" id="bouquet-art-box">
+        <div class="bouquet-blooms-cluster" id="final-blooms-cluster"></div>
+        <div class="bouquet-wrapper-paper" id="final-wrapper-paper">
+          <span class="wrapper-ribbon-tag" id="final-ribbon-tag">🎀 Pink Silk</span>
+        </div>
+      </div>
+
+      <p class="bouquet-note-text">"Made specially for you with all my love!"</p>
+      <button class="success-btn" id="keepBouquetBtn">Keep Bouquet 💐</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: SCRAPBOOK SCREEN -->
+  <section id="gallery-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+      <div class="side-letter-card left-letter">
+        <div class="envelope-seal">💌</div>
+        <h3 class="side-letter-title">To My Favorite 💖</h3>
+        
+        <div class="letter-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Special Memory" />
+          <span class="letter-photo-tag">✨ Always & Forever</span>
+        </div>
+
+        <p class="side-letter-body">"Every single moment with you feels like magic. Thank you for making my life so bright and beautiful!"</p>
+        <span class="side-letter-footer">~ Yours Always 💕</span>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card decorated-card">
+        <span class="flower-badge badge-top-left">🌸</span>
+        <span class="flower-badge badge-top-right">🌺</span>
+        <span class="flower-badge badge-bottom-left">🌻</span>
+        <span class="flower-badge badge-bottom-right">🌷</span>
+
+        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+        
+        <h2 class="script-title">Our Favorite Moments 📸</h2>
+        <p class="subtitle">Click a photo album to explore memory collections! 💕</p>
+
+        <div class="albums-grid">
+          <div class="album-card" data-screen="album-detail-screen">
+            <span class="album-badge">Click to Open 📂</span>
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Golden Hour" />
+            <h3>Golden Hour 🌅</h3>
+          </div>
+
+          <div class="album-card" data-screen="album-detail-screen">
+            <span class="album-badge">Click to Open 📂</span>
+            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Celebrations" />
+            <h3>Celebrations 🎉</h3>
+          </div>
+        </div>
+
+        <div class="vinyl-player-box">
+          <h3>This Song Reminds Me Of You 🎵</h3>
+
+          <div class="song-select-wrap">
+            <label for="song-select"><i class="fa-solid fa-music"></i> Choose Song: </label>
+            <select id="song-select">
+              <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Melody 1 - Soft Acoustic 🎸</option>
+              <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">Melody 2 - Romantic Piano 🎹</option>
+              <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">Melody 3 - Sweet Chill 🌸</option>
+            </select>
+          </div>
+
+          <div class="vinyl-record" id="vinyl-record">
+            <div class="vinyl-center">🌸</div>
+          </div>
+          <p class="vinyl-caption" id="vinyl-status">Click the record to play music! 🎧</p>
+        </div>
+
+      </div>
+
+      <div class="side-letter-card right-letter">
+        <div class="envelope-seal">🎀</div>
+        <h3 class="side-letter-title">Reasons I Love You 💕</h3>
+        
+        <div class="letter-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Sweet Memory" />
+          <span class="letter-photo-tag">🌸 Pure Joy</span>
+        </div>
+
+        <p class="side-letter-body">"Your smile lights up my whole world. Here is to creating endless memories together!"</p>
+        <span class="side-letter-footer">~ With All My Heart 💖</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM DETAIL SCREEN -->
+  <section id="album-detail-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Golden Hour 1" />
+          <p class="side-caption">Golden Glow 🌅</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Golden Hour 2" />
+          <p class="side-caption">Sunset Magic ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Golden Hour 3" />
+          <p class="side-caption">Warmth 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Golden Hour 4" />
+          <p class="side-caption">Ocean Horizon 🌊</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Golden Hour 5" />
+          <p class="side-caption">My Favorite 💕</p>
+        </div>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card decorated-card">
+        <span class="flower-badge badge-top-left">🌸</span>
+        <span class="flower-badge badge-top-right">🌺</span>
+        <span class="flower-badge badge-bottom-left">🌻</span>
+        <span class="flower-badge badge-bottom-right">🌷</span>
+
+        <button class="back-btn" data-back="gallery-screen"><i class="fa-solid fa-arrow-left"></i> Back to Albums</button>
+        <h2 class="script-title">Golden Hour Memories 🌅</h2>
+        <p class="subtitle">Click any photo to enlarge!</p>
+
+        <div class="photo-grid">
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800" data-caption="Sunset Chairs">
+            <span class="photo-tag">🌸</span>
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Sunset Chairs" />
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" data-caption="Ocean Waves">
+            <span class="photo-tag">🌸</span>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Ocean Waves" />
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800" data-caption="Field Flowers">
+            <span class="photo-tag">💖</span>
+            <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Field Flowers" />
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800" data-caption="Heart Sunset">
+            <span class="photo-tag">💖</span>
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Heart Sunset" />
+          </div>
+        </div>
+      </div>
+
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Golden Hour Right 1" />
+          <p class="side-caption">Best Memories 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Golden Hour Right 2" />
+          <p class="side-caption">Joy & Laughter ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Golden Hour Right 3" />
+          <p class="side-caption">Golden Evening 🎈</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500" alt="Golden Hour Right 4" />
+          <p class="side-caption">Special Moments 🎉</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Golden Hour Right 5" />
+          <p class="side-caption">Forever & Always 💕</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STEP 7: PHOTO VAULT / STORAGE PAGE -->
+  <section id="storage-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Vault Left 1" />
+          <p class="side-caption">Stored Memories 📦</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Vault Left 2" />
+          <p class="side-caption">Golden Snapshots ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Vault Left 3" />
+          <p class="side-caption">Beach Trips 🌊</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Vault Left 4" />
+          <p class="side-caption">Smiles 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500" alt="Vault Left 5" />
+          <p class="side-caption">Unforgettable 🎉</p>
+        </div>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card decorated-card">
+        <span class="flower-badge badge-top-left">🌸</span>
+        <span class="flower-badge badge-top-right">🌺</span>
+        <span class="flower-badge badge-bottom-left">🌻</span>
+        <span class="flower-badge badge-bottom-right">🌷</span>
+
+        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+        
+        <h2 class="script-title">Photo Vault Storage 📦📸</h2>
+        <p class="subtitle">A complete archived collection of every favorite picture!</p>
+
+        <div class="vault-info-bar">
+          <span class="vault-count" id="vault-count-text"><i class="fa-solid fa-database"></i> 8 Memories Stored</span>
+          <div class="vault-tags">
+            <span class="tag filter-btn active" data-filter="all">All</span>
+            <span class="tag filter-btn" data-filter="trips">Trips 🚗</span>
+            <span class="tag filter-btn" data-filter="candid">Candid 💖</span>
+            <span class="tag filter-btn" data-filter="dates">Dates ☕</span>
+          </div>
+        </div>
+
+        <div class="photo-grid vault-grid">
+          <div class="photo-card vault-item" data-category="candid" data-img="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800" data-caption="Candid #1 - Heart Bokeh Lights">
+            <span class="photo-tag">📸 #01</span>
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Vault Photo 1" />
+          </div>
+          
+          <div class="photo-card vault-item" data-category="dates" data-img="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800" data-caption="Dates #1 - Heart Sunset Hands">
+            <span class="photo-tag">📸 #02</span>
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Vault Photo 2" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="dates" data-img="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800" data-caption="Dates #2 - Outdoor Garden Setup">
+            <span class="photo-tag">📸 #03</span>
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Vault Photo 3" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="trips" data-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" data-caption="Trips #1 - Ocean Beach Gateway">
+            <span class="photo-tag">📸 #04</span>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Vault Photo 4" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="trips" data-img="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800" data-caption="Trips #2 - Strawberry Field Trip">
+            <span class="photo-tag">📸 #05</span>
+            <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Vault Photo 5" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="candid" data-img="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800" data-caption="Candid #2 - Confetti Night">
+            <span class="photo-tag">📸 #06</span>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Vault Photo 6" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="candid" data-img="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800" data-caption="Candid #3 - Celebration Lights">
+            <span class="photo-tag">📸 #07</span>
+            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Vault Photo 7" />
+          </div>
+
+          <div class="photo-card vault-item" data-category="trips" data-img="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800" data-caption="Trips #3 - Road Trip Celebration">
+            <span class="photo-tag">📸 #08</span>
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Vault Photo 8" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Vault Right 1" />
+          <p class="side-caption">Best Day Ever 🎈</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Vault Right 2" />
+          <p class="side-caption">Pure Joy ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Vault Right 3" />
+          <p class="side-caption">Sweet Moments 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Vault Right 4" />
+          <p class="side-caption">Memories Kept 🗝️</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Vault Right 5" />
+          <p class="side-caption">Forever Saved 💖</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STEP 8: BABYS PAGE -->
+  <section id="babys-screen" class="screen sub-page hidden">
+    <div class="menu-layout-wrapper">
+      <div class="side-stack left-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">👶</div>
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Baby Left 1" />
+          <p class="side-caption">Tiny Hands 🍼</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Baby Left 2" />
+          <p class="side-caption">Sweet Dreams 🌙</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">📌</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Baby Left 3" />
+          <p class="side-caption">Cuddles 💕</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Baby Left 4" />
+          <p class="side-caption">First Steps 👣</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Baby Left 5" />
+          <p class="side-caption">Pure Love 💖</p>
+        </div>
+      </div>
+
+      <div class="card glass-box wide-card menu-center-card">
+        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+        <h2 class="script-title">Baby Moments 👶</h2>
+        <p class="subtitle">Cherishing every little miracle!</p>
+
+        <div class="baby-quote-box" style="background:rgba(255,255,240,0.7); border-radius:20px; padding:20px; margin:15px 0;">
+          <div class="baby-quote-icon" style="font-size:2.8rem;">👶</div>
+          <p style="font-size:1rem; font-style:italic; color:#4a2e35; margin:10px 0;">"A baby is a blessing, a gift from heaven above, a precious little angel to cherish and love."</p>
+          <span style="font-size:0.8rem; color:#d63384; font-weight:600;">— Unknown 💕</span>
+        </div>
+
+        <div class="photo-grid" style="grid-template-columns:repeat(2,1fr); gap:12px;">
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800" data-caption="Baby smile">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Baby 1" />
+            <span class="photo-tag">👶</span>
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800" data-caption="Tiny toes">
+            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Baby 2" />
+            <span class="photo-tag">💕</span>
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800" data-caption="Cute baby">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Baby 3" />
+            <span class="photo-tag">🌸</span>
+          </div>
+          <div class="photo-card" data-img="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=800" data-caption="Baby joy">
+            <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=500" alt="Baby 4" />
+            <span class="photo-tag">🌟</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-stack right-stack">
+        <div class="polaroid-card-stacked pos-1">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Baby Right 1" />
+          <p class="side-caption">Little Miracle 🌟</p>
+        </div>
+        <div class="polaroid-card-stacked pos-2">
+          <div class="polaroid-pin">🌼</div>
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="Baby Right 2" />
+          <p class="side-caption">Baby Joy ✨</p>
+        </div>
+        <div class="polaroid-card-stacked pos-3">
+          <div class="polaroid-pin">🎀</div>
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" alt="Baby Right 3" />
+          <p class="side-caption">Tiny Miracle 🎈</p>
+        </div>
+        <div class="polaroid-card-stacked pos-4">
+          <div class="polaroid-pin">🌺</div>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500" alt="Baby Right 4" />
+          <p class="side-caption">Precious 💖</p>
+        </div>
+        <div class="polaroid-card-stacked pos-5">
+          <div class="polaroid-pin">🌸</div>
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500" alt="Baby Right 5" />
+          <p class="side-caption">Always Loved 💕</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="lightbox hidden">
+    <span class="close-lightbox" id="closeLightboxBtn">&times;</span>
+    <img id="lightbox-img" src="" alt="Enlarged View" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
