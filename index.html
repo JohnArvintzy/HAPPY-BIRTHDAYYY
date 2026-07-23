@@ -506,11 +506,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <section id="babys-screen" class="screen sub-page hidden">
     <div class="menu-layout-wrapper">
       <div class="side-stack left-stack">
-        <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">👶</div><img src="b1.jpeg" alt="Baby" /><p class="side-caption">Noah 🍼</p></div>
-        <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">🌸</div><img src="b2.jpeg" alt="Baby" /><p class="side-caption">Jo 🌙</p></div>
-        <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">📌</div><img src="b3.jpeg" alt="Baby" /><p class="side-caption">Amy 💕</p></div>
-        <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">🎀</div><img src="b4.jpeg" alt="Baby" /><p class="side-caption">Jayden 👣</p></div>
-        <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="b5.jpeg" alt="Baby" /><p class="side-caption">Dino 💖</p></div>
+        <div class="polaroid-card-stacked pos-1" onclick="playSound()"><div class="polaroid-pin">👶</div><img src="b1.jpeg" alt="Baby" /><p class="side-caption">Noah 🍼</p></div>
+        <div class="polaroid-card-stacked pos-2" onclick="playSound()"><div class="polaroid-pin">🌸</div><img src="b2.jpeg" alt="Baby" /><p class="side-caption">Jo 🌙</p></div>
+        <div class="polaroid-card-stacked pos-3" onclick="playSound()"><div class="polaroid-pin">📌</div><img src="b3.jpeg" alt="Baby" /><p class="side-caption">Amy 💕</p></div>
+        <div class="polaroid-card-stacked pos-4" onclick="playSound()"><div class="polaroid-pin">🎀</div><img src="b4.jpeg" alt="Baby" /><p class="side-caption">Jayden 👣</p></div>
+        <div class="polaroid-card-stacked pos-5" onclick="playSound()"><div class="polaroid-pin">🌸</div><img src="b5.jpeg" alt="Baby" /><p class="side-caption">Dino 💖</p></div>
       </div>
       <div class="card glass-box wide-card menu-center-card">
         <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
@@ -522,22 +522,32 @@ document.addEventListener("DOMContentLoaded", () => {
           <span style="font-size:0.75rem; color:#b83b5e; font-weight:700;">— Unknown 💕</span>
         </div>
         <div class="photo-grid" style="grid-template-columns:repeat(2,1fr); gap:14px;">
-          <div class="photo-card" data-img="e1.jpeg" data-caption="Baby smile"><img src="d1.jpg" alt="Baby" /><span class="photo-tag">👶</span></div>
-          <div class="photo-card" data-img="e2.jpg" data-caption="Tiny toes"><img src="d2.jpg" alt="Baby" /><span class="photo-tag">💕</span></div>
-          <div class="photo-card" data-img="e3.jpg" data-caption="Cute baby"><img src="d3.png" alt="Baby" /><span class="photo-tag">🌸</span></div>
-          <div class="photo-card" data-img="e4.jpg" data-caption="Baby Calling you"><img src="d4.jpeg" alt="Baby" /><span class="photo-tag">🌟</span></div>
+          <div class="photo-card" data-img="e1.jpeg" data-caption="Baby smile" onclick="playSound()"><img src="d1.jpg" alt="Baby" /><span class="photo-tag">👶</span></div>
+          <div class="photo-card" data-img="e2.jpg" data-caption="Tiny toes" onclick="playSound()"><img src="d2.jpg" alt="Baby" /><span class="photo-tag">💕</span></div>
+          <div class="photo-card" data-img="e3.jpg" data-caption="Cute baby" onclick="playSound()"><img src="d3.png" alt="Baby" /><span class="photo-tag">🌸</span></div>
+          <div class="photo-card" data-img="e4.jpg" data-caption="Baby Calling you" onclick="playSound()"><img src="d4.jpeg" alt="Baby" /><span class="photo-tag">🌟</span></div>
         </div>
       </div>
       <div class="side-stack right-stack">
-        <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">🌸</div><img src="b6.jpeg" alt="Baby" /><p class="side-caption">Piggy 🌟</p></div>
-        <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">🌼</div><img src="b7.jpeg" alt="Baby" /><p class="side-caption">Tom ✨</p></div>
-        <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">🎀</div><img src="b10.jpeg" alt="Baby" /><p class="side-caption">Lily 🎈</p></div>
-        <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">🌺</div><img src="b8.jpeg " alt="Baby" /><p class="side-caption">Bluey 💖</p></div>
-        <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="b9.jpeg" alt="Baby" /><p class="side-caption">Oink 💕</p></div>
+        <div class="polaroid-card-stacked pos-1" onclick="playSound()"><div class="polaroid-pin">🌸</div><img src="b6.jpeg" alt="Baby" /><p class="side-caption">Piggy 🌟</p></div>
+        <div class="polaroid-card-stacked pos-2" onclick="playSound()"><div class="polaroid-pin">🌼</div><img src="b7.jpeg" alt="Baby" /><p class="side-caption">Tom ✨</p></div>
+        <div class="polaroid-card-stacked pos-3" onclick="playSound()"><div class="polaroid-pin">🎀</div><img src="b10.jpeg" alt="Baby" /><p class="side-caption">Lily 🎈</p></div>
+        <div class="polaroid-card-stacked pos-4" onclick="playSound()"><div class="polaroid-pin">🌺</div><img src="b8.jpeg " alt="Baby" /><p class="side-caption">Bluey 💖</p></div>
+        <div class="polaroid-card-stacked pos-5" onclick="playSound()"><div class="polaroid-pin">🌸</div><img src="b9.jpeg" alt="Baby" /><p class="side-caption">Oink 💕</p></div>
       </div>
     </div>
   </section>
 
+  <!-- Audio Element & Script Added Here -->
+  <audio id="click-sound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+
+  <script>
+    function playSound() {
+      const sound = document.getElementById("click-sound");
+      sound.currentTime = 0;
+      sound.play().catch(e => console.log("Audio play error:", e));
+    }
+  </script>
   <!-- === MODALS === -->
   <!-- DOG MODAL -->
   <div id="dog-modal" class="modal-overlay hidden">
