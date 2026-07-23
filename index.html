@@ -22,22 +22,15 @@
 
 <!-- Audio Elements -->
 <audio id="bg-music" src="" loop></audio>
-<audio id="birthday-song" src="andriig-happy-birthday-471211.mp3"></audio>
-  <!-- === LOCK SCREEN with CLOCK & PASSWORD OVERRIDE === -->
-  <section id="lock-screen" class="screen">
-    <div class="lock-screen-wrapper">
-      <div class="lock-side-images left-images">
-        <img src="1.jpeg" alt="Memory 1" class="side-img" />
-        <img src="2.jpg" alt="Memory 2" class="side-img" />
-        <img src="3.jpg" alt="Memory 3" class="side-img" />
-        <img src="4.jpg" alt="Memory 4" class="side-img" />
-        <img src="5.jpg" alt="Memory 5" class="side-img" />
-      </div>
 
-      <div class="card glass-box lock-card">
-        <div class="lock-flower-icon">🌸</div>
-        <h1 class="script-title lock-title">Today is your Special Day</h1>
-        <p class="subtitle" style="font-family:'Great Vibes',cursive; font-size:1.8rem; color:#b83b5e; margin-top:-8px;">is Coming</p>
+<!-- === DEDICATED HAPPY BIRTHDAY SONG PLAYER (TOP) === -->
+<div style="background: rgba(255, 255, 255, 0.9); padding: 12px 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-family: 'Inter', sans-serif;">
+  <span style="font-size: 0.9rem; color: #5b3f4a; font-weight: 600;">🎵 Happy Birthday Song</span>
+  <button id="birthdayToggleBtn" style="background: #7a5f69; color: white; border: none; border-radius: 20px; padding: 6px 14px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+    <i id="birthdayBtnIcon" class="fa-solid fa-play"></i> <span id="birthdayBtnText">Play</span>
+  </button>
+</div>
+<audio id="birthday-song" src="andriig-happy-birthday-471211.mp3"></audio>
 
         <!-- === BIRTHDAY CLOCK / COUNTDOWN === -->
         <div class="birthday-clock">
@@ -123,8 +116,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioControlBtn = document.getElementById("audioControlBtn");
   const audioIcon = document.getElementById("audioIcon");
   const waxSealBtn = document.getElementById("waxSealBtn");
+  
+  // Dedicated Happy Birthday widget elements
+  const birthdayToggleBtn = document.getElementById("birthdayToggleBtn");
+  const birthdayBtnIcon = document.getElementById("birthdayBtnIcon");
+  const birthdayBtnText = document.getElementById("birthdayBtnText");
 
-  // Track which song was active before pausing
   let lastActiveSong = null;
 
   // Auto-play background music on first user interaction
@@ -135,48 +132,73 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, { once: true });
 
-  // Wax seal triggers the birthday song
+  // Wax seal trigger
   if (waxSealBtn) {
     waxSealBtn.addEventListener("click", function () {
       bgMusic.pause();
       birthdaySong.currentTime = 0;
       birthdaySong.play().catch(() => {});
       lastActiveSong = birthdaySong;
-      updateAudioIcon();
+      updateAudioIcons();
     });
   }
 
-  // 1. When birthday song plays, pause background music
+  // Dedicated Happy Birthday Play/Pause Button Logic
+  if (birthdayToggleBtn) {
+    birthdayToggleBtn.addEventListener("click", function () {
+      if (birthdaySong.paused) {
+        bgMusic.pause(); // Pause bg music when playing birthday song
+        birthdaySong.play().catch(() => {});
+        lastActiveSong = birthdaySong;
+      } else {
+        birthdaySong.pause();
+      }
+      updateAudioIcons();
+    });
+  }
+
+  // When birthday song plays
   birthdaySong.addEventListener("play", function () {
     if (!bgMusic.paused) {
       bgMusic.pause();
     }
     lastActiveSong = birthdaySong;
-    updateAudioIcon();
+    birthdayBtnIcon.className = "fa-solid fa-pause";
+    birthdayBtnText.textContent = "Pause";
+    updateAudioIcons();
   });
 
-  // 2. When background music plays
+  // When birthday song pauses or ends
+  birthdaySong.addEventListener("pause", function () {
+    birthdayBtnIcon.className = "fa-solid fa-play";
+    birthdayBtnText.textContent = "Resume";
+    updateAudioIcons();
+  });
+
+  birthdaySong.addEventListener("ended", function () {
+    birthdayBtnIcon.className = "fa-solid fa-play";
+    birthdayBtnText.textContent = "Play";
+    updateAudioIcons();
+  });
+
+  // When background music plays
   bgMusic.addEventListener("play", function () {
     if (!birthdaySong.paused) {
       birthdaySong.pause();
     }
     lastActiveSong = bgMusic;
-    updateAudioIcon();
+    updateAudioIcons();
   });
 
-  // Keep track of pauses
-  birthdaySong.addEventListener("pause", updateAudioIcon);
-  bgMusic.addEventListener("pause", updateAudioIcon);
-  birthdaySong.addEventListener("ended", updateAudioIcon);
+  bgMusic.addEventListener("pause", updateAudioIcons);
 
-  // 3. Top Left Control Button Logic (Pause all / Resume last played)
+  // Top Left Control Button Logic (Pause all / Resume last played)
   audioControlBtn.addEventListener("click", function (e) {
     e.stopPropagation();
 
     const isPlaying = !bgMusic.paused || !birthdaySong.paused;
 
     if (isPlaying) {
-      // If anything is playing, pause EVERYTHING immediately
       if (!bgMusic.paused) {
         bgMusic.pause();
         lastActiveSong = bgMusic;
@@ -186,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
         lastActiveSong = birthdaySong;
       }
     } else {
-      // If everything is paused, resume the last active song (or default to bg-music)
       if (lastActiveSong) {
         lastActiveSong.play().catch(() => {});
       } else {
@@ -194,15 +215,25 @@ document.addEventListener("DOMContentLoaded", function () {
         lastActiveSong = bgMusic;
       }
     }
-    updateAudioIcon();
+    updateAudioIcons();
   });
 
-  // Helper to update the top-left button icon
-  function updateAudioIcon() {
+  // Helper to sync all audio icons/states
+  function updateAudioIcons() {
+    // Top-left button state
     if (!bgMusic.paused || !birthdaySong.paused) {
       audioIcon.className = "fa-solid fa-pause";
     } else {
       audioIcon.className = "fa-solid fa-play";
+    }
+
+    // Birthday widget button state sync
+    if (birthdaySong.paused) {
+      birthdayBtnIcon.className = "fa-solid fa-play";
+      birthdayBtnText.textContent = birthdaySong.currentTime > 0 ? "Resume" : "Play";
+    } else {
+      birthdayBtnIcon.className = "fa-solid fa-pause";
+      birthdayBtnText.textContent = "Pause";
     }
   }
 });
