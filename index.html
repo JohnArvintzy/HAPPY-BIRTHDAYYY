@@ -24,8 +24,8 @@
 <audio id="bg-music" src="" loop></audio>
 <audio id="birthday-song" src="andriig-happy-birthday-471211.mp3"></audio>
 
-        <!-- === BIRTHDAY CLOCK / COUNTDOWN === -->
-   <section id="lock-screen" class="screen">
+     <!-- === LOCK SCREEN with CLOCK & PASSWORD OVERRIDE === -->
+  <section id="lock-screen" class="screen">
     <div class="lock-screen-wrapper">
       <div class="lock-side-images left-images">
         <img src="c:\Users\user\Downloads\drive-download-20260722T132221Z-1-001\1.jpeg" alt="Memory 1" class="side-img" />
@@ -35,6 +35,12 @@
         <img src="c:\Users\user\Downloads\drive-download-20260722T132221Z-1-001\1784725344851.jpg" alt="Memory 5" class="side-img" />
       </div>
 
+      <div class="card glass-box lock-card">
+        <div class="lock-flower-icon">🌸</div>
+        <h1 class="script-title lock-title">Your Special Day</h1>
+        <p class="subtitle" style="font-family:'Great Vibes',cursive; font-size:1.8rem; color:#b83b5e; margin-top:-8px;">is Coming</p>
+
+        <!-- === BIRTHDAY CLOCK / COUNTDOWN === -->
         <div class="birthday-clock">
           <div class="clock-title">
             <span class="date-highlight">7.24.2026</span>
@@ -68,14 +74,6 @@
       </div>
 
       <div class="lock-side-images right-images">
-        <img src="6.jpeg" alt="Memory 6" class="side-img" />
-        <img src="7.jpeg" alt="Memory 7" class="side-img" />
-        <img src="8.jpeg" alt="Memory 8" class="side-img" />
-        <img src="9.jpeg" alt="Memory 9" class="side-img" />
-        <img src="10.jpeg" alt="Memory 10" class="side-img" />
-      </div>
-    </div>
- <div class="lock-side-images right-images">
         <img src="c:\Users\user\Downloads\drive-download-20260722T132221Z-1-001\received_2126233178227769.jpeg" alt="Memory 6" class="side-img" />
         <img src="c:\Users\user\Downloads\drive-download-20260722T132221Z-1-001\received_2093854768215546.jpeg" alt="Memory 7" class="side-img" />
         <img src="c:\Users\user\Downloads\drive-download-20260722T132221Z-1-001\received_2018664288888248.jpeg" alt="Memory 8" class="side-img" />
@@ -86,99 +84,23 @@
   </section>
 
   <!-- === WELCOME SCREEN === -->
-<section id="welcome-screen" class="screen hidden">
-  <div class="card glass-box welcome-card">
-    <h1 class="script-title welcome-title">Happy Birthday!</h1>
-    <div class="envelope-container">
-      <div class="envelope-box" id="envelopeBox">
-        <button class="wax-seal-btn" id="waxSealBtn" aria-label="Open Envelope">
-          <span class="seal-flower">🌷</span>
-        </button>
-        <div class="envelope-content" id="envelopeContent">
-          <span>✨ Surprise! ✨</span>
-          <span style="font-size:1rem; font-family:'Inter', sans-serif; color:#5b3f4a;">You found the secret!</span>
+  <section id="welcome-screen" class="screen hidden">
+    <div class="card glass-box welcome-card">
+      <h1 class="script-title welcome-title">Happy Birthday!</h1>
+      <div class="envelope-container">
+        <div class="envelope-box" id="envelopeBox">
+          <button class="wax-seal-btn" id="waxSealBtn" aria-label="Open Envelope">
+            <span class="seal-flower">🌷</span>
+          </button>
+          <div class="envelope-content" id="envelopeContent">
+            <span>✨ Surprise! ✨</span>
+            <span style="font-size:1rem; font-family:'Inter', sans-serif; color:#5b3f4a;">You found the secret!</span>
+          </div>
         </div>
       </div>
+      <p class="envelope-hint">👉 Click the wax seal to open</p>
     </div>
-    <p class="envelope-hint">👉 Click the wax seal to open</p>
-  </div>
-</section>
-
-<!-- Integrated Audio Management Script -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const bgMusic = document.getElementById("bg-music");
-  const birthdaySong = document.getElementById("birthday-song");
-  const audioControlBtn = document.getElementById("audioControlBtn");
-  const audioIcon = document.getElementById("audioIcon");
-  const waxSealBtn = document.getElementById("waxSealBtn");
-
-  // Auto-play background music on first user interaction (like clicking the wax seal or page)
-  document.body.addEventListener("click", function startBgMusic() {
-    if (bgMusic.paused && birthdaySong.paused) {
-      bgMusic.play().catch(() => {});
-    }
-  }, { once: true });
-
-  // Example trigger: If clicking the wax seal plays the birthday song, integrate it here:
-  if (waxSealBtn) {
-    waxSealBtn.addEventListener("click", function () {
-      // If you want the birthday song to trigger when opening the envelope:
-      birthdaySong.currentTime = 0;
-      birthdaySong.play().catch(() => {});
-    });
-  }
-
-  // 1. When "This Song Reminds Me Of You" starts playing, pause background music
-  birthdaySong.addEventListener("play", function () {
-    if (!bgMusic.paused) {
-      bgMusic.pause();
-      bgMusic.dataset.interrupted = "true";
-    }
-    updateAudioIcon();
-  });
-
-  // 2. When the special song pauses or ends, resume background music
-  birthdaySong.addEventListener("pause", function () {
-    if (bgMusic.dataset.interrupted === "true") {
-      bgMusic.play().catch(() => {});
-      bgMusic.dataset.interrupted = "false";
-    }
-    updateAudioIcon();
-  });
-
-  birthdaySong.addEventListener("ended", function () {
-    if (bgMusic.dataset.interrupted === "true") {
-      bgMusic.play().catch(() => {});
-      bgMusic.dataset.interrupted = "false";
-    }
-    updateAudioIcon();
-  });
-
-  // 3. Top Left Control Button functionality (Pause/Play everything toggle)
-  audioControlBtn.addEventListener("click", function (e) {
-    e.stopPropagation(); // Prevent triggering body click
-    
-    if (!bgMusic.paused || !birthdaySong.paused) {
-      bgMusic.pause();
-      birthdaySong.pause();
-      bgMusic.dataset.interrupted = "false";
-    } else {
-      bgMusic.play().catch(() => {});
-    }
-    updateAudioIcon();
-  });
-
-  // Helper to update the top-left button icon
-  function updateAudioIcon() {
-    if (!bgMusic.paused || !birthdaySong.paused) {
-      audioIcon.className = "fa-solid fa-pause";
-    } else {
-      audioIcon.className = "fa-solid fa-play";
-    }
-  }
-});
-</script>
+  </section>
   <!-- === MENU SCREEN === -->
   <section id="menu-screen" class="screen hidden">
     <div class="menu-layout-wrapper">
