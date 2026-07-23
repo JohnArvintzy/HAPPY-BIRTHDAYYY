@@ -16,7 +16,8 @@
   <div id="popup-flower-effect-container" class="popup-flower-effect-container"></div>
 
   <!-- Audio -->
-<button id="audioControlBtn" style="position: fixed; top: 20px; left: 20px; z-index: 9999; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+ <!-- Audio -->
+ <button id="audioControlBtn" style="position: fixed; top: 20px; left: 20px; z-index: 9999; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
   <i id="audioIcon" class="fa-solid fa-music" style="color: #7a5f69;"></i>
 </button>
 
@@ -83,7 +84,7 @@
     </div>
   </section>
 
-  <!-- === WELCOME SCREEN === -->
+<!-- === WELCOME SCREEN === -->
 <section id="welcome-screen" class="screen hidden">
   <div class="card glass-box welcome-card">
     <h1 class="script-title welcome-title">Happy Birthday!</h1>
@@ -102,21 +103,7 @@
   </div>
 </section>
 
-<!-- === PASSWORD OVERRIDE === -->
-<div class="override-section">
-  <div class="override-label"><i class="fa-solid fa-key"></i> Early access? Enter override code</div>
-  <div class="override-input-group">
-    <input type="password" class="override-input" id="overrideInput" placeholder="••••••" maxlength="6" autocomplete="off" />
-    <button class="override-btn" id="overrideBtn">Unlock now ✨</button>
-  </div>
-  <div class="override-error" id="overrideError"></div>
-</div>
-
-<p style="font-size:0.75rem; color:#7a5f69; margin-top:16px; opacity:0.7;">
-  <i class="fa-regular fa-clock"></i> Only opens on the special day · or use the secret code
-</p>
-
-<!-- Integrated Audio Management Script -->
+  <!-- Integrated Audio Management Script -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const bgMusic = document.getElementById("bg-music");
@@ -208,6 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+     
   <!-- === MENU SCREEN === -->
   <section id="menu-screen" class="screen hidden">
     <div class="menu-layout-wrapper">
