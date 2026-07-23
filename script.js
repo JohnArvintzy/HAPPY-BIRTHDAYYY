@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // --- CONFIG ---
   const TARGET_DATE = new Date(2026, 6, 24); // 7/24/2026 (month is 0-indexed)
-  const OVERRIDE_PASSWORD = "111023";
+  const OVERRIDE_PASSWORD = "102030";
   let isUnlocked = false;
   let isMusicPlaying = false;
   let selectedFlowers = [];
