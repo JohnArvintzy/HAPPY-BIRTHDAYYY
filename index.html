@@ -16,7 +16,7 @@
   <div id="popup-flower-effect-container" class="popup-flower-effect-container"></div>
 
   <!-- Audio -->
-  <button id="audioControlBtn" style="position: fixed; top: 20px; left: 20px; z-index: 9999; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+<button id="audioControlBtn" style="position: fixed; top: 20px; left: 20px; z-index: 9999; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
   <i id="audioIcon" class="fa-solid fa-music" style="color: #7a5f69;"></i>
 </button>
 
@@ -83,7 +83,7 @@
   </section>
 
   <!-- === WELCOME SCREEN === -->
- <section id="welcome-screen" class="screen hidden">
+<section id="welcome-screen" class="screen hidden">
   <div class="card glass-box welcome-card">
     <h1 class="script-title welcome-title">Happy Birthday!</h1>
     <div class="envelope-container">
@@ -101,6 +101,20 @@
   </div>
 </section>
 
+<!-- === PASSWORD OVERRIDE === -->
+<div class="override-section">
+  <div class="override-label"><i class="fa-solid fa-key"></i> Early access? Enter override code</div>
+  <div class="override-input-group">
+    <input type="password" class="override-input" id="overrideInput" placeholder="••••••" maxlength="6" autocomplete="off" />
+    <button class="override-btn" id="overrideBtn">Unlock now ✨</button>
+  </div>
+  <div class="override-error" id="overrideError"></div>
+</div>
+
+<p style="font-size:0.75rem; color:#7a5f69; margin-top:16px; opacity:0.7;">
+  <i class="fa-regular fa-clock"></i> Only opens on the special day · or use the secret code
+</p>
+
 <!-- Integrated Audio Management Script -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -110,58 +124,75 @@ document.addEventListener("DOMContentLoaded", function () {
   const audioIcon = document.getElementById("audioIcon");
   const waxSealBtn = document.getElementById("waxSealBtn");
 
-  // Auto-play background music on first user interaction (like clicking the wax seal or page)
+  // Track which song was active before pausing
+  let lastActiveSong = null;
+
+  // Auto-play background music on first user interaction
   document.body.addEventListener("click", function startBgMusic() {
     if (bgMusic.paused && birthdaySong.paused) {
       bgMusic.play().catch(() => {});
+      lastActiveSong = bgMusic;
     }
   }, { once: true });
 
-  // Example trigger: If clicking the wax seal plays the birthday song, integrate it here:
+  // Wax seal triggers the birthday song
   if (waxSealBtn) {
     waxSealBtn.addEventListener("click", function () {
-      // If you want the birthday song to trigger when opening the envelope:
+      bgMusic.pause();
       birthdaySong.currentTime = 0;
       birthdaySong.play().catch(() => {});
+      lastActiveSong = birthdaySong;
+      updateAudioIcon();
     });
   }
 
-  // 1. When "This Song Reminds Me Of You" starts playing, pause background music
+  // 1. When birthday song plays, pause background music
   birthdaySong.addEventListener("play", function () {
     if (!bgMusic.paused) {
       bgMusic.pause();
-      bgMusic.dataset.interrupted = "true";
     }
+    lastActiveSong = birthdaySong;
     updateAudioIcon();
   });
 
-  // 2. When the special song pauses or ends, resume background music
-  birthdaySong.addEventListener("pause", function () {
-    if (bgMusic.dataset.interrupted === "true") {
-      bgMusic.play().catch(() => {});
-      bgMusic.dataset.interrupted = "false";
-    }
-    updateAudioIcon();
-  });
-
-  birthdaySong.addEventListener("ended", function () {
-    if (bgMusic.dataset.interrupted === "true") {
-      bgMusic.play().catch(() => {});
-      bgMusic.dataset.interrupted = "false";
-    }
-    updateAudioIcon();
-  });
-
-  // 3. Top Left Control Button functionality (Pause/Play everything toggle)
-  audioControlBtn.addEventListener("click", function (e) {
-    e.stopPropagation(); // Prevent triggering body click
-    
-    if (!bgMusic.paused || !birthdaySong.paused) {
-      bgMusic.pause();
+  // 2. When background music plays
+  bgMusic.addEventListener("play", function () {
+    if (!birthdaySong.paused) {
       birthdaySong.pause();
-      bgMusic.dataset.interrupted = "false";
+    }
+    lastActiveSong = bgMusic;
+    updateAudioIcon();
+  });
+
+  // Keep track of pauses
+  birthdaySong.addEventListener("pause", updateAudioIcon);
+  bgMusic.addEventListener("pause", updateAudioIcon);
+  birthdaySong.addEventListener("ended", updateAudioIcon);
+
+  // 3. Top Left Control Button Logic (Pause all / Resume last played)
+  audioControlBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    const isPlaying = !bgMusic.paused || !birthdaySong.paused;
+
+    if (isPlaying) {
+      // If anything is playing, pause EVERYTHING immediately
+      if (!bgMusic.paused) {
+        bgMusic.pause();
+        lastActiveSong = bgMusic;
+      }
+      if (!birthdaySong.paused) {
+        birthdaySong.pause();
+        lastActiveSong = birthdaySong;
+      }
     } else {
-      bgMusic.play().catch(() => {});
+      // If everything is paused, resume the last active song (or default to bg-music)
+      if (lastActiveSong) {
+        lastActiveSong.play().catch(() => {});
+      } else {
+        bgMusic.play().catch(() => {});
+        lastActiveSong = bgMusic;
+      }
     }
     updateAudioIcon();
   });
@@ -483,8 +514,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="song-select-wrap">
             <label for="song-select"><i class="fa-solid fa-music"></i> Choose Song: </label>
             <select id="song-select">
-              <option value="ssstik.io_@lykaibarra10_1784803949091.mp4">Melody 1 - Soft Acoustic 🎸</option>
-              <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">Melody 2 - Romantic Piano 🎹</option>
+              <option value="ssstik.io_@lykaibarra10_1784803949091.mp4">Top 1 🎸</option>
+              <option value="dubis.mp4">Top 2 🎹</option>
               <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">Melody 3 - Sweet Chill 🌸</option>
             </select>
           </div>
