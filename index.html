@@ -204,42 +204,172 @@
   </section>
 
   <!-- === CAKE SCREEN === -->
-  <section id="cake-screen" class="screen sub-page hidden">
-    <div class="menu-layout-wrapper">
-      <div class="side-stack left-stack">
-        <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">🎂</div><img src="i16.jpeg" alt="Cake" /><p class="side-caption">Sweet Treats 🍰</p></div>
-        <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">✨</div><img src="i17.jpeg" alt="Cake" /><p class="side-caption">Celebration 🎉</p></div>
-        <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">🎀</div><img src="a18.jpeg" alt="Cake" /><p class="side-caption">Joyful Day 🌟</p></div>
-        <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">💖</div><img src="a19.jpeg" alt="Cake" /><p class="side-caption">Sweet Memories 💕</p></div>
-        <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="i20.jpeg" alt="Cake" /><p class="side-caption">Happy Birthday 🎈</p></div>
-      </div>
-      <div class="card glass-box wide-card menu-center-card">
-        <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
-        <h2 class="script-title">🎂 Cake for You!</h2>
-        <p class="subtitle">Make a wish and blow out the candles! 🕯️</p>
-        <div class="cake-display">
-          <div class="cake-emoji-big" id="cakeEmoji">
-            🎂
-            <span class="candle-flame" id="candleFlame">🕯️</span>
-          </div>
-          <div class="cake-message" id="cakeMessage">Tap the cake to <span class="highlight">make a wish</span>! ✨</div>
-          <div class="cake-actions">
-            <button class="cake-btn" id="cakeWishBtn"><span class="icon">✨</span> Make a Wish</button>
-            <button class="cake-btn primary" id="cakeBlowBtn"><span class="icon">💨</span> Blow Candles!</button>
-            <button class="cake-btn" id="cakeResetBtn"><span class="icon">🔄</span> Relight</button>
-          </div>
-          <div class="cake-wish-text" id="cakeWishText"><span class="wish-emoji">💫</span> Make a wish, and it might come true!</div>
+<!-- === CAKE SCREEN === -->
+<section id="cake-screen" class="screen sub-page hidden">
+  <div class="menu-layout-wrapper">
+    <div class="side-stack left-stack">
+      <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">🎂</div><img src="i16.jpeg" alt="Cake" /><p class="side-caption">Sweet Treats 🍰</p></div>
+      <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">✨</div><img src="i17.jpeg" alt="Cake" /><p class="side-caption">Celebration 🎉</p></div>
+      <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">🎀</div><img src="a18.jpeg" alt="Cake" /><p class="side-caption">Joyful Day 🌟</p></div>
+      <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">💖</div><img src="a19.jpeg" alt="Cake" /><p class="side-caption">Sweet Memories 💕</p></div>
+      <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="i20.jpeg" alt="Cake" /><p class="side-caption">Happy Birthday 🎈</p></div>
+    </div>
+    <div class="card glass-box wide-card menu-center-card">
+      <button class="back-btn" data-back="menu-screen"><i class="fa-solid fa-arrow-left"></i> Back to Menu</button>
+      <h2 class="script-title">🎂 Cake for You!</h2>
+      <p class="subtitle">Make a wish and blow out the candles! 🕯️</p>
+      <div class="cake-display">
+        <div class="cake-emoji-big" id="cakeEmoji">
+          🎂
+          <span class="candle-flame" id="candleFlame">🕯️</span>
         </div>
-      </div>
-      <div class="side-stack right-stack">
-        <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">🎂</div><img src="i21.jpeg" alt="Cake" /><p class="side-caption">Birthday Magic ✨</p></div>
-        <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">🕯️</div><img src="i22.jpeg" alt="Cake" /><p class="side-caption">Make a Wish 🌟</p></div>
-        <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">🎉</div><img src="i23.jpeg" alt="Cake" /><p class="side-caption">Celebrate 🥳</p></div>
-        <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">💕</div><img src="i24.jpeg" alt="Cake" /><p class="side-caption">Forever Loved 💖</p></div>
-        <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="i25.jpeg" alt="Cake" /><p class="side-caption">Always Special 💐</p></div>
+        <div class="cake-message" id="cakeMessage">Tap the cake to <span class="highlight">make a wish</span>! ✨</div>
+        <div class="cake-actions">
+          <button class="cake-btn" id="cakeWishBtn"><span class="icon">✨</span> Make a Wish</button>
+          <button class="cake-btn primary" id="cakeBlowBtn"><span class="icon">💨</span> Blow Candles!</button>
+          <button class="cake-btn" id="cakeResetBtn"><span class="icon">🔄</span> Relight</button>
+        </div>
+        <div class="cake-wish-text" id="cakeWishText"><span class="wish-emoji">💫</span> Make a wish, and it might come true!</div>
       </div>
     </div>
-  </section>
+    <div class="side-stack right-stack">
+      <div class="polaroid-card-stacked pos-1"><div class="polaroid-pin">🎂</div><img src="i21.jpeg" alt="Cake" /><p class="side-caption">Birthday Magic ✨</p></div>
+      <div class="polaroid-card-stacked pos-2"><div class="polaroid-pin">🕯️</div><img src="i22.jpeg" alt="Cake" /><p class="side-caption">Make a Wish 🌟</p></div>
+      <div class="polaroid-card-stacked pos-3"><div class="polaroid-pin">🎉</div><img src="i23.jpeg" alt="Cake" /><p class="side-caption">Celebrate 🥳</p></div>
+      <div class="polaroid-card-stacked pos-4"><div class="polaroid-pin">💕</div><img src="i24.jpeg" alt="Cake" /><p class="side-caption">Forever Loved 💖</p></div>
+      <div class="polaroid-card-stacked pos-5"><div class="polaroid-pin">🌸</div><img src="i25.jpeg" alt="Cake" /><p class="side-caption">Always Special 💐</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS Styling for 5 Simultaneous Photos -->
+<style>
+.simultaneous-photo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 260px;
+  background: white;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  transform: translate(-50%, -50%) scale(0) rotate(var(--rot, 0deg));
+  animation: popOutAndFade 3.5s ease-out forwards;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.simultaneous-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.simultaneous-photo .photo-caption {
+  text-align: center;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #ff477e;
+  margin-top: 6px;
+}
+
+@keyframes popOutAndFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2) rotate(var(--rot, 0deg));
+  }
+  20% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--destX)), calc(-50% + var(--destY))) scale(1) rotate(var(--rot, 0deg));
+  }
+  75% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--destX)), calc(-50% + var(--destY))) scale(1) rotate(var(--rot, 0deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--destX)), calc(-50% + var(--destY) - 50px)) scale(1.1) rotate(calc(var(--rot, 0deg) + 5deg));
+  }
+}
+</style>
+
+<!-- JavaScript Logic triggering sound and all 5 pictures at the exact same moment on click -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cakeBlowBtn = document.getElementById("cakeBlowBtn");
+  const candleFlame = document.getElementById("candleFlame");
+  const cakeMessage = document.getElementById("cakeMessage");
+
+  // Happy Birthday Audio Object
+  const birthdaySound = new Audio('https://www.myinstants.com/media/sounds/happy-birthday-music.mp3');
+  birthdaySound.volume = 1.0;
+  birthdaySound.preload = 'auto';
+
+  // 5 Pictures data
+  const simultaneousPhotos = [
+    { url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500&h=600&fit=crop", text: "Happy Birthday! 🎂", x: -260, y: -130, rot: -8 },
+    { url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=600&fit=crop", text: "Make a Wish! ✨", x: 260, y: -130, rot: 8 },
+    { url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&h=600&fit=crop", text: "Stay Amazing! 💖", x: -280, y: 120, rot: -5 },
+    { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=600&fit=crop", text: "You're Special! 🌟", x: 280, y: 120, rot: 6 },
+    { url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&h=600&fit=crop", text: "Best Day Ever! 🎉", x: 0, y: -180, rot: 0 }
+  ];
+
+  if (cakeBlowBtn) {
+    cakeBlowBtn.addEventListener("click", () => {
+      // 1. Play sound instantly on click
+      birthdaySound.currentTime = 0;
+      birthdaySound.play().catch(error => {
+        console.log("Audio playback blocked:", error);
+      });
+
+      // 2. Extinguish candle and update text
+      if (candleFlame) {
+        candleFlame.style.opacity = "0";
+      }
+      if (cakeMessage) {
+        cakeMessage.innerHTML = `<span class="highlight">Happy Birthday! 🎉 Make a wish! 🌟</span>`;
+      }
+
+      // 3. Trigger all 5 pictures to appear at the same time
+      spawnAllPhotosAtOnce();
+    });
+  }
+
+  function spawnAllPhotosAtOnce() {
+    // Clear old elements if clicked again
+    document.querySelectorAll(".simultaneous-photo").forEach(el => el.remove());
+
+    simultaneousPhotos.forEach(photoData => {
+      const photoDiv = document.createElement("div");
+      photoDiv.className = "simultaneous-photo";
+
+      photoDiv.style.setProperty("--destX", `${photoData.x}px`);
+      photoDiv.style.setProperty("--destY", `${photoData.y}px`);
+      photoDiv.style.setProperty("--rot", `${photoData.rot}deg`);
+
+      const img = document.createElement("img");
+      img.src = photoData.url;
+      img.alt = "Birthday Memory";
+
+      const caption = document.createElement("div");
+      caption.className = "photo-caption";
+      caption.textContent = photoData.text;
+
+      photoDiv.appendChild(img);
+      photoDiv.appendChild(caption);
+      document.body.appendChild(photoDiv);
+
+      // Remove from DOM after 3.5 seconds
+      setTimeout(() => {
+        photoDiv.remove();
+      }, 3500);
+    });
+  }
+});
+</script>
 
   <!-- === GALLERY SCREEN === -->
   <section id="gallery-screen" class="screen sub-page hidden">
