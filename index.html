@@ -16,9 +16,13 @@
   <div id="popup-flower-effect-container" class="popup-flower-effect-container"></div>
 
   <!-- Audio -->
-   <audio id="bg-music" src="" loop></audio>
-  <audio id="birthday-song" src="andriig-happy-birthday-471211.mp3"></audio>
+  <button id="audioControlBtn" style="position: fixed; top: 20px; left: 20px; z-index: 9999; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <i id="audioIcon" class="fa-solid fa-music" style="color: #7a5f69;"></i>
+</button>
 
+<!-- Audio Elements -->
+<audio id="bg-music" src="" loop></audio>
+<audio id="birthday-song" src="andriig-happy-birthday-471211.mp3"></audio>
   <!-- === LOCK SCREEN with CLOCK & PASSWORD OVERRIDE === -->
   <section id="lock-screen" class="screen">
     <div class="lock-screen-wrapper">
@@ -79,24 +83,99 @@
   </section>
 
   <!-- === WELCOME SCREEN === -->
-  <section id="welcome-screen" class="screen hidden">
-    <div class="card glass-box welcome-card">
-      <h1 class="script-title welcome-title">Happy Birthday!</h1>
-      <div class="envelope-container">
-        <div class="envelope-box" id="envelopeBox">
-          <button class="wax-seal-btn" id="waxSealBtn" aria-label="Open Envelope">
-            <span class="seal-flower">🌷</span>
-          </button>
-          <div class="envelope-content" id="envelopeContent">
-            <span>✨ Surprise! ✨</span>
-            <span style="font-size:1rem; font-family:'Inter', sans-serif; color:#5b3f4a;">You found the secret!</span>
-          </div>
+ <section id="welcome-screen" class="screen hidden">
+  <div class="card glass-box welcome-card">
+    <h1 class="script-title welcome-title">Happy Birthday!</h1>
+    <div class="envelope-container">
+      <div class="envelope-box" id="envelopeBox">
+        <button class="wax-seal-btn" id="waxSealBtn" aria-label="Open Envelope">
+          <span class="seal-flower">🌷</span>
+        </button>
+        <div class="envelope-content" id="envelopeContent">
+          <span>✨ Surprise! ✨</span>
+          <span style="font-size:1rem; font-family:'Inter', sans-serif; color:#5b3f4a;">You found the secret!</span>
         </div>
       </div>
-      <p class="envelope-hint">👉 Click the wax seal to open</p>
     </div>
-  </section>
+    <p class="envelope-hint">👉 Click the wax seal to open</p>
+  </div>
+</section>
 
+<!-- Integrated Audio Management Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const bgMusic = document.getElementById("bg-music");
+  const birthdaySong = document.getElementById("birthday-song");
+  const audioControlBtn = document.getElementById("audioControlBtn");
+  const audioIcon = document.getElementById("audioIcon");
+  const waxSealBtn = document.getElementById("waxSealBtn");
+
+  // Auto-play background music on first user interaction (like clicking the wax seal or page)
+  document.body.addEventListener("click", function startBgMusic() {
+    if (bgMusic.paused && birthdaySong.paused) {
+      bgMusic.play().catch(() => {});
+    }
+  }, { once: true });
+
+  // Example trigger: If clicking the wax seal plays the birthday song, integrate it here:
+  if (waxSealBtn) {
+    waxSealBtn.addEventListener("click", function () {
+      // If you want the birthday song to trigger when opening the envelope:
+      birthdaySong.currentTime = 0;
+      birthdaySong.play().catch(() => {});
+    });
+  }
+
+  // 1. When "This Song Reminds Me Of You" starts playing, pause background music
+  birthdaySong.addEventListener("play", function () {
+    if (!bgMusic.paused) {
+      bgMusic.pause();
+      bgMusic.dataset.interrupted = "true";
+    }
+    updateAudioIcon();
+  });
+
+  // 2. When the special song pauses or ends, resume background music
+  birthdaySong.addEventListener("pause", function () {
+    if (bgMusic.dataset.interrupted === "true") {
+      bgMusic.play().catch(() => {});
+      bgMusic.dataset.interrupted = "false";
+    }
+    updateAudioIcon();
+  });
+
+  birthdaySong.addEventListener("ended", function () {
+    if (bgMusic.dataset.interrupted === "true") {
+      bgMusic.play().catch(() => {});
+      bgMusic.dataset.interrupted = "false";
+    }
+    updateAudioIcon();
+  });
+
+  // 3. Top Left Control Button functionality (Pause/Play everything toggle)
+  audioControlBtn.addEventListener("click", function (e) {
+    e.stopPropagation(); // Prevent triggering body click
+    
+    if (!bgMusic.paused || !birthdaySong.paused) {
+      bgMusic.pause();
+      birthdaySong.pause();
+      bgMusic.dataset.interrupted = "false";
+    } else {
+      bgMusic.play().catch(() => {});
+    }
+    updateAudioIcon();
+  });
+
+  // Helper to update the top-left button icon
+  function updateAudioIcon() {
+    if (!bgMusic.paused || !birthdaySong.paused) {
+      audioIcon.className = "fa-solid fa-pause";
+    } else {
+      audioIcon.className = "fa-solid fa-play";
+    }
+  }
+});
+</script>
   <!-- === MENU SCREEN === -->
   <section id="menu-screen" class="screen hidden">
     <div class="menu-layout-wrapper">
